@@ -1,9 +1,11 @@
+import { Categorie } from '../models/categorie';
+
 export class Client {
-    public id_client: number;
-    public id_categorie: number;
-    public identite_client: string;
-    public adresse_client: string;
+    public idClient: number;
+    public categorie: Categorie;
+    public identiteClient: string;
+    public adresseClient: string;
     public credits: number;
-    public login_client: string;
-    public pwd_client: string;
+    public loginClient: string;
+    public pwdClient: string;
 }

@@ -4,11 +4,11 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LoginService {
-  private employeesSrvUrl = 'http://localhost/EmployeesSrv/';
+  private netArticlesRestUrl = 'http://localhost:8080/NetArticlesRest/webresources/webservice/';
 
   constructor(private httpClient: HttpClient) { }
 
-  public getUser(login: string): Observable<any> {
-    return this.httpClient.post(this.employeesSrvUrl + 'getUser', JSON.stringify(login));
+  public getClient(login: string): Observable<any> {
+    return this.httpClient.get(this.netArticlesRestUrl + 'connecter/' + login);
   }
 }
