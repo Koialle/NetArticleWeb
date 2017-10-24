@@ -15,9 +15,11 @@ import { MenuComponent } from './menu/menu.component';
 // Services
 import { SharedService } from './services/shared/shared.service';
 import { LoginService } from './services/login/login.service';
+import { ArticleService } from './services/article/article.service';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AuthGuard } from './guards/auth.guard';
     ErrorComponent,
     HomeComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { AuthGuard } from './guards/auth.guard';
   providers: [
     SharedService,
     LoginService,
-    AuthGuard
+    AuthGuard,
+    ArticleService
   ],
   bootstrap: [AppComponent]
 })
