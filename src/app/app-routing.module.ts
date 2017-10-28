@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ArticleComponent } from './article/article.component';
+import { ArticlesComponent } from './articles/articles.component';
 
 const routes: Routes = [
   //{path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -14,14 +15,19 @@ const routes: Routes = [
     {path: '', component: ArticleComponent},
     {path: ':id', component: ArticleComponent},
   ]},
-  /* {path: 'articles', children: [
+  {path: 'articles', children: [
     {path: '', component: ArticlesComponent},
-    {path: 'domaine/:id', component: ArticleDomaineComponent}
-  ]} */
+    {path: 'domaine/:id', component: ArticlesComponent}
+  ]}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(
+      routes,
+      {enableTracing: true}
+    )
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

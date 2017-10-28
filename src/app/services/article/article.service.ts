@@ -19,4 +19,8 @@ export class ArticleService {
   public getLastArticle(): Observable<any> {
     return this.httpClient.get(this.restUrl + 'article/last');
   }
+
+  public getArticles(): Observable<any> {
+    return this.httpClient.get(this.restUrl + 'articles');
+  }
 }
