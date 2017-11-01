@@ -1,4 +1,4 @@
 export class Categorie {
-    public id_categorie: number;
+    public idCategorie: number;
     public libcategorie: string;
 }
