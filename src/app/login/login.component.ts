@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         this.client = client;
         if ((this.pwdClient === this.client.pwdClient)) {
           this.sharedService.isConnected = true;
+          this.sharedService.currentClient = this.client;
           this.router.navigate(['/home']);
         } else {
           this.error = 'Login ou mot de passe erroné !';
