@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 import { SharedService } from '../services/shared/shared.service';
 import { ClientService } from '../services/client/client.service';
+import { CategorieService } from '../services/categorie/categorie.service';
 import { Client } from '../models/client';
 
 @Component({
@@ -20,6 +21,7 @@ export class ClientComponent implements OnInit {
   constructor(
     private sharedService: SharedService,
     private clientService: ClientService,
+    private categorieService: CategorieService,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute
@@ -51,7 +53,9 @@ export class ClientComponent implements OnInit {
             const originalUrl: string = this.sharedService.getOriginalUrl();
             this.router.navigate([originalUrl]);
           },
-          error => { this.error = error.message; });
+          error => {
+            this.error = error.message;
+          });
       }
     } else {
       this.clientService.addClient(this.client).
@@ -64,7 +68,10 @@ export class ClientComponent implements OnInit {
   }
 
   categorieSelected(categorie_id: number): void {
-    console.log(categorie_id);
+    this.categorieService.getCategorie(categorie_id).subscribe(
+      (categorie) => { this.client.categorie = categorie; },
+      (error) => { this.error = error.message; }
+    );
   }
 
   cancel(id: number) {

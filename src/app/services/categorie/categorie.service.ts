@@ -12,4 +12,8 @@ export class CategorieService {
     return this.httpClient.get(this.netArticlesRestUrl + 'categorie');
   }
 
+  getCategorie(id: number): Observable<any> {
+    return this.httpClient.get(this.netArticlesRestUrl + 'categorie/' + id);
+  }
+
 }
