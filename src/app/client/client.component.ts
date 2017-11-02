@@ -26,11 +26,9 @@ export class ClientComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.client = new Client();
-    this.client_id = +this.activatedRoute.snapshot.paramMap.get('client_id');
-    if (this.client_id > 0) {
+    this.client = this.sharedService.currentClient;
+    if (this.client !== null) {
       this.title = 'Modifier vos informations personelles';
-      this.getClient(this.client_id);
     } else {
       this.title = 'Créer un compte client';
     }

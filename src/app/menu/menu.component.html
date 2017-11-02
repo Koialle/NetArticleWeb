@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">Rechercher</a></li>
                 <li *ngIf="sharedService.isConnected"><a href="#">Mes articles</a></li>
-                <li *ngIf="sharedService.isConnected"><a [routerLink]= "['/compte/sharedService.currentClient.categorie.idCategorie']">Compte</a></li>
+                <li *ngIf="sharedService.isConnected"><a [routerLink]= "['/compte']">Compte</a></li>
                 <li><a href="#">Panier</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
