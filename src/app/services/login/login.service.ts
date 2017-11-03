@@ -11,4 +11,8 @@ export class LoginService {
   public getClient(login: string): Observable<any> {
     return this.httpClient.get(this.netArticlesRestUrl + 'connecter/' + login);
   }
+
+  public getAuteur(login: string): Observable<any> {
+    return this.httpClient.get(this.netArticlesRestUrl + 'auteur/connecter/' + login);
+  }
 }
