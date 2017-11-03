@@ -39,17 +39,10 @@ export class ClientComponent implements OnInit {
     }
   }
 
-  getClient(id: number) {
-    this.clientService.getClient(id).subscribe(
-      (client) => { this.client = client; },
-      (error) => { this.error = error.message; }
-    );
-  }
-
   validateClient(id: number) {
     if (id > 0) {
       if (this.client.categorie === undefined) {
-        this.error = 'Vous devez sélectionner un job !';
+        this.error = 'Vous devez sélectionner une catégorie !';
       } else {
         this.clientService.updateClient(this.client).
           subscribe(() => {
@@ -62,7 +55,9 @@ export class ClientComponent implements OnInit {
       }
     } else {
       this.clientService.addClient(this.client).
-        subscribe(() => { },
+        subscribe(() => {
+          this.sharedService.isConnected = true;
+        },
         error => { this.error = error.message; },
         () => {
           this.router.navigate(['/']);
