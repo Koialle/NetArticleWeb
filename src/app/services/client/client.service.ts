@@ -7,7 +7,7 @@ import { Client } from '../../models/client';
 export class ClientService {
 
   private netArticlesRestUrl = 'http://localhost:8080/NetArticlesRest/webresources/webservice/';
-  public headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  public headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=UTF-8' });
 
   private client: Client;
   constructor(
