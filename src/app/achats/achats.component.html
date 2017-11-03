@@ -1,3 +1,27 @@
-<p>
-  achats works!
-</p>
+<div>
+  <h1>{{title}}</h1>
+  <div *ngIf="achats.length>0">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Titre</th>
+          <th>Domaine</th>
+          <th>Date achat</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let achat of achats">
+            <!-- <td> {{ achat.employee_id}} </td> -->
+            <!-- <td> {{ employee.name}} </td> -->
+            <!-- <td> {{ employee.department.dname}} </td> -->
+            <td> {{ achat.dateAchat |date: 'shortDate'}} </td>
+            <td> <a href="#">Télécharger</a></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+  <p *ngIf="achats.length == 0"> Oups, il semblerait que vous n'ayiez pas encore d'articles. <a href="#">En acheter ici.</a></p>
+  <app-error [error]="error" ></app-error>
+</div>
