@@ -57,6 +57,7 @@ export class ClientComponent implements OnInit {
       this.clientService.addClient(this.client).
         subscribe(() => {
           this.sharedService.isConnected = true;
+          this.sharedService.currentClient = this.client;
         },
         error => { this.error = error.message; },
         () => {
