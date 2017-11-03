@@ -23,6 +23,6 @@ export class ClientService {
   }
 
   addClient(client: Client): Observable<any> {
-    return this.httpClient.post(this.netArticlesRestUrl + 'client', JSON.stringify(client));
+    return this.httpClient.post(this.netArticlesRestUrl + 'client', JSON.stringify(client), { headers: this.headers });
   }
 }

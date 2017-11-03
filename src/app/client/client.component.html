@@ -8,31 +8,31 @@
     <div class="form-group">
       <label class="col-sm-3 col-md-2 control-label">Identité : </label>
       <div class="col-sm-6  col-md-5">
-        <input type="text" name="name" [(ngModel)]="client.identiteClient" class="form-control" placeholder="Client's name" required autofocus>
+        <input type="text" name="name" [(ngModel)]="client.identiteClient" class="form-control" placeholder="Renseignez votre identité (NOM Prénom)" required autofocus>
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-3  col-md-2 control-label">Adresse : </label>
       <div class="col-sm-6 col-md-2">
-        <input type="text" class="form-control" [(ngModel)]="client.adresseClient" required name="adresseClient">
+        <input type="text" class="form-control" [(ngModel)]="client.adresseClient" placeholder="Adresse" required name="adresseClient">
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-3  col-md-2 control-label">Crédits : </label>
       <div class="col-sm-6 col-md-2">
-        <input type="currency" name="credits" [(ngModel)]="client.credits"  class="form-control" placeholder="Client's credits" required>
+        <input type="currency" name="credits" [(ngModel)]="client.credits"  class="form-control" placeholder="Crédits" required>
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-3  col-md-2 control-label">Login : </label>
       <div class="col-sm-6 col-md-2">
-        <input type="text" class="form-control" [(ngModel)]="client.loginClient" required name="loginClient">
+        <input type="text" class="form-control" [(ngModel)]="client.loginClient" placeholder="Identifiant" required name="loginClient">
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-3  col-md-2 control-label">Mot de passe : </label>
       <div class="col-sm-6 col-md-2">
-        <input type="password" class="form-control" [(ngModel)]="client.pwdClient" required name="pwdClient">
+        <input type="password" class="form-control" [(ngModel)]="client.pwdClient" placeholder="Mot de passe" required name="pwdClient">
       </div>
     </div>
     <div class="form-group">

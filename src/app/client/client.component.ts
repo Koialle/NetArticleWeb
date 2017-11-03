@@ -5,6 +5,7 @@ import { SharedService } from '../services/shared/shared.service';
 import { ClientService } from '../services/client/client.service';
 import { CategorieService } from '../services/categorie/categorie.service';
 import { Client } from '../models/client';
+import { Categorie } from '../models/categorie';
 
 @Component({
   selector: 'app-client',
@@ -28,9 +29,11 @@ export class ClientComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.client = this.sharedService.currentClient;
-    if (this.client !== null) {
-      this.title = 'Modifier vos informations personelles';
+    this.client = new Client();
+    this.client.categorie = new Categorie();
+    if (this.sharedService.currentClient) {
+      this.client = this.sharedService.currentClient;
+      this.title = 'Modifiez vos informations personelles';
     } else {
       this.title = 'Créer un compte client';
     }
