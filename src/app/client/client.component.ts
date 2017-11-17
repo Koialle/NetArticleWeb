@@ -40,20 +40,18 @@ export class ClientComponent implements OnInit {
   }
 
   validateClient(id: number) {
-    if (id > 0) {
-      if (this.client.categorie === undefined) {
-        this.error = 'Vous devez sélectionner une catégorie !';
-      } else {
-        this.clientService.updateClient(this.client).
-          subscribe(() => {
-            const originalUrl: string = this.sharedService.getOriginalUrl();
-            this.router.navigate([originalUrl]);
-          },
-          error => {
-            this.error = error.message;
-          });
-      }
-    } else {
+    if (this.client.categorie === undefined) {
+      this.error = 'Vous devez sélectionner une catégorie !';
+    } else if (id > 0) {
+      this.clientService.updateClient(this.client).subscribe(() => {
+          let originalUrl: string = this.sharedService.getOriginalUrl();
+          this.router.navigate([originalUrl]);
+        },
+        error => {
+          this.error = error.message;
+        }
+      );
+    } else { 
       this.clientService.addClient(this.client).
         subscribe(() => {
           this.sharedService.isConnected = true;

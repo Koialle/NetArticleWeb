@@ -17,8 +17,8 @@
                 <li><a href="#">Panier</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li *ngIf="!sharedService.isConnected"><a [routerLink]="['/login']" href="" class="btn btn-link">Login</a></li>
-                <li *ngIf="sharedService.isConnected"><a href="" (click)="logout()">Logout</a></li>
+                <li *ngIf="!sharedService.isConnected"><a [routerLink]="['/login']" class="btn btn-link">Login</a></li>
+                <li *ngIf="sharedService.isConnected"><a (click)="logout()">Logout</a></li>
             </ul>
         </div>
     </div>

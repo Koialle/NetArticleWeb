@@ -9,13 +9,12 @@ import { CategorieService } from '../services/categorie/categorie.service';
   styleUrls: ['./categorie.component.css']
 })
 export class CategorieComponent implements OnInit {
-
-  public error: string;
-  public categories: Categorie;
+  public categories: Categorie[];
 
   @Output() onChoose = new EventEmitter();
   @Output() onError = new EventEmitter();
   @Input() public idCategorie: number;
+
   constructor(
     private categorieService: CategorieService
   ) { }
@@ -30,8 +29,7 @@ export class CategorieComponent implements OnInit {
         this.categories = categories;
       },
       (error) => {
-        this.error = error.message;
-        this.onError.emit(this.error);
+        this.onError.emit(error.message);
       }
     );
   }
@@ -40,5 +38,4 @@ export class CategorieComponent implements OnInit {
     this.idCategorie = +value;
     this.onChoose.emit(this.idCategorie);
   }
-
 }
