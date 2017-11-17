@@ -11,9 +11,9 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-target">
             <ul class="nav navbar-nav">
-                <li><a href="#">Rechercher</a></li>
+                <li><a [routerLink]="['/articles']">Rechercher</a></li>
                 <li *ngIf="sharedService.isConnected"><a href="#">Mes articles</a></li>
-                <li *ngIf="sharedService.isConnected"><a [routerLink]= "['/compte']">Compte</a></li>
+                <li *ngIf="sharedService.isConnected"><a [routerLink]="['/compte']">Compte</a></li>
                 <li><a href="#">Panier</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -23,5 +23,3 @@
         </div>
     </div>
 </nav>
-
-
