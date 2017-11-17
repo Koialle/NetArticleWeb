@@ -8,11 +8,11 @@ import { ArticleComponent } from './article/article.component';
 import { ArticlesComponent } from './articles/articles.component';
 
 const routes: Routes = [
-  //{path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: '',   redirectTo: '/article/last', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
+  //@TODO remove HomeComponent
+  {path: '',   redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home',   redirectTo: '/article/last', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'compte', component: ClientComponent}
+  {path: 'compte', component: ClientComponent},
   {path: 'article', children: [
     {path: '', component: ArticleComponent},
     {path: ':id', component: ArticleComponent},

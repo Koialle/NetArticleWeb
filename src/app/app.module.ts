@@ -37,7 +37,7 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     MenuComponent,
     ClientComponent,
-    CategorieComponent
+    CategorieComponent,
     ArticleComponent,
     DomaineComponent,
     ArticleListComponent,
