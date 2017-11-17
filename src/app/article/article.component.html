@@ -13,11 +13,11 @@
   </div>
   <div class="row">
       <label class="col-md-2 text-right">Prix : </label>
-      <div class="col-md-6">{{article.prix|number}} €</div>
+      <div class="col-md-6">{{article.prix|number:'1.2-2'}} €</div>
   </div>
   <div class="row">
       <label class="col-md-2 text-right">Date publication : </label>
-      <div class="col-md-6">{{article.dateArticle}}</div>
+      <div class="col-md-6">{{article.dateArticle|date:'dd/MM/yyyy'}}</div>
   </div>
   <div class="row">
       <label class="col-md-2 text-right">Domaine : </label>
