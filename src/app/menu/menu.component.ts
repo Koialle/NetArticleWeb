@@ -7,13 +7,15 @@ import { SharedService } from '../services/shared/shared.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  constructor(private sharedService: SharedService) { }
+  constructor(public sharedService: SharedService) { }
 
   ngOnInit() {
     this.sharedService.isConnected = false;
+    this.sharedService.currentClient = null;
   }
 
   public logout(): void {
     this.sharedService.isConnected = false;
+    this.sharedService.currentClient = null;
   }
 }
