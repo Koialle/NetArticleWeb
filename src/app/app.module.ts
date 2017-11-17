@@ -11,10 +11,16 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
+import { ArticleComponent } from './article/article.component';
+import { DomaineComponent } from './domaine/domaine.component';
+import { ArticleListComponent } from './article-list/article-list.component';
+import { ArticlesComponent } from './articles/articles.component';
 
 // Services
 import { SharedService } from './services/shared/shared.service';
 import { LoginService } from './services/login/login.service';
+import { ArticleService } from './services/article/article.service';
+import { CommonService } from './services/common/common.service';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -25,7 +31,11 @@ import { AuthGuard } from './guards/auth.guard';
     ErrorComponent,
     HomeComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    ArticleComponent,
+    DomaineComponent,
+    ArticleListComponent,
+    ArticlesComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,9 @@ import { AuthGuard } from './guards/auth.guard';
   providers: [
     SharedService,
     LoginService,
-    AuthGuard
+    AuthGuard,
+    ArticleService,
+    CommonService
   ],
   bootstrap: [AppComponent]
 })
