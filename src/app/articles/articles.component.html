@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 class="col-md-offset-2">{{title}}</h2>
+  <form role="form" name="articleByDomaineForm" class="form-horizontal">
+    <div class="form-group">
+      <app-domaine [domaineId]="domaineId" (onChoose)="domaineSelected($event)" (onError)="onError($event)"></app-domaine>
+    </div>
+  </form>
+  <!-- <div *ngIf="domaineId > 0"> -->
+    <app-article-list [articles]="articles" (reload)="reload()"></app-article-list>
+  <!-- </div> -->
+  <app-error [error]="error"></app-error>
+</div>

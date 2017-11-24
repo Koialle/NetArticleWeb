@@ -4,6 +4,7 @@ import { AchatsService } from '../services/achats/achats.service';
 import { SharedService } from '../services/shared/shared.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
+
 @Component({
   selector: 'app-achats',
   templateUrl: './achats.component.html',

@@ -17,9 +17,10 @@ export class SharedService {
     let url: string = this.originalUrl;
     this.originalUrl = '';
 
-    if (url === '') {} url = '/home';
+    if (url === '') {
+      url = '/home';
+    }
 
     return url;
   }
-
 }
