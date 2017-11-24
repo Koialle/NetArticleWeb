@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: 'home',   redirectTo: '/article/last', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'compte', component: ClientComponent},
+  {path: 'panier', component: PanierComponent},
   {path: 'article', children: [
     {path: '', component: ArticleComponent},
     {path: ':id', component: ArticleComponent},

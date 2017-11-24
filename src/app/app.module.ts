@@ -28,6 +28,8 @@ import { CommonService } from './services/common/common.service';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
+import { PanierComponent } from './panier/panier.component';
+import { AchatsComponent } from './achats/achats.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,9 @@ import { AuthGuard } from './guards/auth.guard';
     DomaineComponent,
     ArticleListComponent,
     ArticlesComponent,
+    PanierComponent,
+    AchatComponent,
+    AchatsComponent,
   ],
   imports: [
     BrowserModule,
