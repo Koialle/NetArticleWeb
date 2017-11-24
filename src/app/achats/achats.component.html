@@ -17,7 +17,7 @@
             <td> {{ achat.article.titre }} </td>
             <td> {{ achat.article.domaine.libdomaine }} </td>
             <td> {{ achat.dateAchat |date: 'shortDate'}} </td>
-            <td> <a href="#">Télécharger</a></td>
+            <td> <a base href="../../resources/fichiers/{{ achat.article.fichier }}">Télécharger</a></td>
           </tr>
         </tbody>
     </table>
