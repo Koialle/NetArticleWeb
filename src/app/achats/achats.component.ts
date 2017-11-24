@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Achats } from '../models/achats';
+import { Achat } from '../models/achat';
 import { AchatsService } from '../services/achats/achats.service';
 import { SharedService } from '../services/shared/shared.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class AchatsComponent implements OnInit {
 
-  public achats: Achats[];
+  public achats: Achat[];
   public error: string;
   public title: string;
 
@@ -36,10 +36,6 @@ export class AchatsComponent implements OnInit {
       },
       (error) => {this.error = error.message; }
     );
-  }
-
-  télécharger(articleId: number) {
-    // TODO
   }
 
   reload(): void {

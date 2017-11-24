@@ -10,7 +10,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
-  //@TODO remove HomeComponent
+  // @TODO remove HomeComponent
   {path: '',   redirectTo: '/home', pathMatch: 'full'},
   {path: 'home',   redirectTo: '/article/last', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},

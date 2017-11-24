@@ -1,6 +1,6 @@
 <div>
   <h1>{{title}}</h1>
-  <div *ngIf="achats.length>0">
+  <div *ngIf="achats.length > 0">
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -13,15 +13,15 @@
       </thead>
       <tbody>
           <tr *ngFor="let achat of achats">
-            <!-- <td> {{ achat.employee_id}} </td> -->
-            <!-- <td> {{ employee.name}} </td> -->
-            <!-- <td> {{ employee.department.dname}} </td> -->
+            <td> {{ achat.article.idArticle }} </td>
+            <td> {{ achat.article.titre }} </td>
+            <td> {{ achat.article.domaine.libdomaine }} </td>
             <td> {{ achat.dateAchat |date: 'shortDate'}} </td>
             <td> <a href="#">Télécharger</a></td>
           </tr>
         </tbody>
     </table>
   </div>
-  <p *ngIf="achats.length == 0"> Oups, il semblerait que vous n'ayiez pas encore d'articles. <a href="#">En acheter ici.</a></p>
+  <p *ngIf="achats.length == 0"> Oups, il semblerait que vous n'ayiez pas encore d'articles. <a [routerLink]="['/articles']">En acheter ici.</a></p>
   <app-error [error]="error" ></app-error>
 </div>
