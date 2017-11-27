@@ -13,6 +13,7 @@ export class RedigeComponent implements OnInit {
   public redige: Redige[];
   public error: string;
   public title: string;
+  public montantVentes: number;
 
   constructor(
     private redigeService: RedigeService,
@@ -23,6 +24,7 @@ export class RedigeComponent implements OnInit {
 
   ngOnInit() {
     this.getOeuvres(this.sharedService.currentAuteur.idAuteur);
+    this.montantVentes = 0;
   }
 
   getOeuvres(id: number): void {
