@@ -29,6 +29,7 @@ export class RedigeComponent implements OnInit {
     this.title = 'Vos oeuvres';
     this.redigeService.getArticleByAuteur(id).subscribe(
       (redige) => {
+        console.log(redige);
         this.redige = redige;
         this.router.navigate(['/oeuvres']);
       },

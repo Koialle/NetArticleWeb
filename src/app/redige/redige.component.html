@@ -13,12 +13,13 @@
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let article of redige">
-            <td> {{ redige.article.titre }} </td>
-            <td> {{ redige.article.domaine.libdomaine }} </td>
-            <td> {{ redige.article.date |date: 'shortDate' }} </td>
-            <td> {{ redige.article.prix }} </td>
-            <td> {{ redige.part }} </td>
+          <tr *ngFor="let oeuvre of redige">
+            <td> {{ oeuvre.article.titre }} </td>
+            <td> {{ oeuvre.article.domaine.libdomaine }} </td>
+            <td> {{ oeuvre.article.resume }} </td>
+            <td> {{ oeuvre.article.dateArticle | date: 'dd/MM/yyyy' }} </td>
+            <td> {{ oeuvre.article.prix |number:'1.2-2'}} </td>
+            <td> {{ oeuvre.part }} </td>
           </tr>
         </tbody>
     </table>
