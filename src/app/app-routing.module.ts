@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ArticleComponent } from './article/article.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { PanierComponent } from './panier/panier.component';
+import { RedigeComponent } from './redige/redige.component';
 
 const routes: Routes = [
   // @TODO remove HomeComponent
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'articles', children: [
     {path: '', component: ArticlesComponent},
     {path: 'domaine/:id', component: ArticlesComponent}
-  ]}
+  ]},
+  {path: 'oeuvres', component: RedigeComponent}
 ];
 
 @NgModule({

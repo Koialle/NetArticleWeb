@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
                 <li *ngIf="sharedService.currentClient"><a [routerLink]="['/articles']">Rechercher</a></li>
                 <li *ngIf="sharedService.currentClient"><a [routerLink]="['/achats']">Mes articles</a></li>
-                <li *ngIf="sharedService.currentAuteur"><a href="#">Mes ouvrages</a></li>
+                <li *ngIf="sharedService.currentAuteur"><a [routerLink]= "['/oeuvres']">Mes ouvrages</a></li>
                 <li *ngIf="sharedService.currentClient"><a [routerLink]= "['/compte']">Compte</a></li>
                 <li><a href="#">Panier</a></li>
             </ul>
