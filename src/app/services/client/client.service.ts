@@ -10,6 +10,7 @@ export class ClientService {
   public headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=UTF-8' });
 
   private client: Client;
+
   constructor(
     private httpClient: HttpClient
   ) { }
