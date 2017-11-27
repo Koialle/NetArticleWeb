@@ -30,6 +30,7 @@ import { CommonService } from './services/common/common.service';
 // Guards
 import { AuthGuard } from './guards/auth.guard';
 import { PanierComponent } from './panier/panier.component';
+import { RedigeComponent } from './redige/redige.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { PanierComponent } from './panier/panier.component';
     ArticlesComponent,
     PanierComponent,
     AchatsComponent,
+    RedigeComponent,
   ],
   imports: [
     BrowserModule,
