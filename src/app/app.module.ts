@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 // Components
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { ClientComponent } from './client/client.component';
@@ -39,7 +38,6 @@ import { PanierComponent } from './panier/panier.component';
   declarations: [
     AppComponent,
     ErrorComponent,
-    HomeComponent,
     LoginComponent,
     MenuComponent,
     ClientComponent,
