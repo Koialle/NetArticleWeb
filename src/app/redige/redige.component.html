@@ -1,7 +1,8 @@
 <div>
-  <h1>{{title}}</h1>
-  <p> Vos oeuvres vous ont rapporté {{ montantVentes }} €</p>
-  <div *ngIf="redige.length > 0">
+  <h1> {{title}}</h1>
+  <p> Vos oeuvres vous ont rapporté {{ totalRoyalties }} €.</p>
+  <br />
+  <div *ngIf="rediges.length > 0">
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -14,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let oeuvre of redige">
+          <tr *ngFor="let oeuvre of rediges">
             <td> {{ oeuvre.article.titre }} </td>
             <td> {{ oeuvre.article.domaine.libdomaine }} </td>
             <td> {{ oeuvre.article.resume }} </td>
@@ -25,6 +26,6 @@
         </tbody>
     </table>
   </div>
-  <p *ngIf="redige.length == 0"> Oups, il semblerait que vous n'ayiez pas encore écrit d'oeuvres. A votre plume !</p>
+  <p *ngIf="rediges.length == 0"> Oups, il semblerait que vous n'ayiez pas encore écrit d'oeuvres. A votre plume !</p>
   <app-error [error]="error" ></app-error>
 </div>

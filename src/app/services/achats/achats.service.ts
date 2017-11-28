@@ -12,4 +12,8 @@ export class AchatsService {
   getClientAchats(id: number): Observable<any> {
     return this.httpClient.get(this.netArticlesRestUrl + 'achat/byClient/' + id);
   }
+
+  getAchatsByArticle(id: number): Observable<any> {
+    return this.httpClient.get(this.netArticlesRestUrl + 'achat/byArticle/' + id);
+  }
 }
