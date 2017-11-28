@@ -23,6 +23,12 @@ const routes: Routes = [
     {path: '', component: ArticlesComponent},
     {path: 'domaine/:id', component: ArticlesComponent}
   ]},
+  {path: 'panier', children: [
+    {path: '', component: PanierComponent},
+    {path: 'ajouter', component: PanierComponent},
+    {path: 'supprimer/:id', component: PanierComponent},
+    {path: 'valider', component: PanierComponent}
+  ]},
   {path: 'oeuvres', component: RedigeComponent}
 ];
 

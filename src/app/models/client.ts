@@ -1,4 +1,4 @@
-import { Categorie } from '../models/categorie';
+import { Categorie } from './categorie';
 
 export class Client {
     public idClient: number;

@@ -18,6 +18,7 @@ import { DomaineComponent } from './domaine/domaine.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { RedigeComponent } from './redige/redige.component';
+import { PanierComponent } from './panier/panier.component';
 
 // Services
 import { SharedService } from './services/shared/shared.service';
@@ -28,11 +29,11 @@ import { AchatsService } from './services/achats/achats.service';
 import { ArticleService } from './services/article/article.service';
 import { CommonService } from './services/common/common.service';
 import { RedigeService } from './services/redige/redige.service';
+import { AchatService } from './services/achat/achat.service';
+import { PanierService } from './services/panier/panier.service';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
-import { PanierComponent } from './panier/panier.component';
-
 
 @NgModule({
   declarations: [
@@ -65,7 +66,9 @@ import { PanierComponent } from './panier/panier.component';
     AuthGuard,
     ArticleService,
     CommonService,
-    RedigeService
+    RedigeService,
+    AchatService,
+    PanierService
   ],
   bootstrap: [AppComponent]
 })

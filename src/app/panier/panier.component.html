@@ -1,3 +1,29 @@
-<p>
-  panier works!
-</p>
+<div class="col-md-9 col-md-offset-2">
+  <h1 align='center'>Panier</h1>
+    <table *ngIf="panier" class="table table-bordered table-striped">
+      <thead>
+          <tr>
+            <td>Id</td>
+            <td>Titre</td>
+            <td>Prix</td>
+            <td>Supprimer</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let article of panier.articles">
+              <td>{{article.idArticle}}</td>
+              <td>{{article.titre}}</td>
+              <td>{{article.prix|number:'1.2-2'}} €</td>
+              <td><button class="btn btn-primary" (click)="delete(article.idArticle)">Supprimer</button></td>
+          </tr>
+          <tr>
+              <td colspan="2" style="text-align: right">Montant total</td>
+              <td>{{panier.total|number:'1.2-2'}} €</td>
+          </tr>
+      </tbody>
+  </table>
+  <div>
+      <a class="btn btn-primary" [routerLink]= "['/panier/valider']"><span class="glyphicon glyphicon-log-in"></span> Valider panier</a>
+  </div>
+  <app-error [error]="error"></app-error>
+</div>

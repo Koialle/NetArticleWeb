@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Client } from '../../models/client';
 import { Auteur } from '../../models/auteur';
+import { Panier } from '../../models/panier';
 
 @Injectable()
 export class SharedService {
@@ -8,8 +9,11 @@ export class SharedService {
   public currentClient: Client;
   public currentAuteur: Auteur;
   private originalUrl: string;
+  private panier: Panier;
 
-  constructor() { }
+  constructor() {
+    this.panier = new Panier();
+  }
 
   public setOriginalUrl(url: string): void {
     this.originalUrl = url;
@@ -24,5 +28,13 @@ export class SharedService {
     }
 
     return url;
+  }
+
+  public setPanier(panier: Panier) {
+    this.panier =  panier;
+  }
+
+  public getPanier(): Panier {
+    return this.panier;
   }
 }

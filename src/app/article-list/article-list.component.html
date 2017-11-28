@@ -3,18 +3,18 @@
         <tr>
             <td>Id</td>
             <td>Titre</td>
-            <td>Prix</td>    
-            <td>Résumé</td>   
-            <td>Panier</td>                     
+            <td>Prix</td>
+            <td>Résumé</td>
+            <td>Panier</td>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let article of articles">
             <td>{{article.idArticle}}</td>
             <td>{{article.titre}}</td>
-            <td>{{article.prix}}</td>                    
-            <td><a href="voirArticle.cde?id_article={{article.idArticle}}">Résumé</a></td>                                     
-            <td><a href="ajoutPanier.cde?id_article={{article.idArticle}}">Panier</a></td>                       
+            <td>{{article.prix|number:'1.2-2'}} €</td>
+            <td><a href="voirArticle.cde?id_article={{article.idArticle}}">Résumé</a></td>
+            <td><a href="ajoutPanier.cde?id_article={{article.idArticle}}">Panier</a></td>
         </tr>
     </tbody>
 </table>
