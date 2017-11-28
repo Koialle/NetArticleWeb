@@ -1,0 +1,31 @@
+<div>
+  <h1> {{title}}</h1>
+  <p> Vos oeuvres vous ont rapporté {{ totalRoyalties }} €.</p>
+  <br />
+  <div *ngIf="rediges.length > 0">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Domaine</th>
+          <th>Resume</th>
+          <th>Date</th>
+          <th>Prix</th>
+          <th>Part</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let oeuvre of rediges">
+            <td> {{ oeuvre.article.titre }} </td>
+            <td> {{ oeuvre.article.domaine.libdomaine }} </td>
+            <td> {{ oeuvre.article.resume }} </td>
+            <td> {{ oeuvre.article.dateArticle | date: 'dd/MM/yyyy' }} </td>
+            <td> {{ oeuvre.article.prix |number:'1.2-2'}} </td>
+            <td> {{ oeuvre.part }} </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+  <p *ngIf="rediges.length == 0"> Oups, il semblerait que vous n'ayiez pas encore écrit d'oeuvres. A votre plume !</p>
+  <app-error [error]="error" ></app-error>
+</div>

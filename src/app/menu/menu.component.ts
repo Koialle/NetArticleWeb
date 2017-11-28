@@ -12,10 +12,11 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.sharedService.isConnected = false;
     this.sharedService.currentClient = null;
+    this.sharedService.currentAuteur = null;
   }
 
   public logout(): void {
     this.sharedService.isConnected = false;
-    this.sharedService.currentClient = null;
+    this.sharedService.currentAuteur = null;
   }
 }
