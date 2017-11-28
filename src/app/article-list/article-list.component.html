@@ -13,8 +13,8 @@
             <td>{{article.idArticle}}</td>
             <td>{{article.titre}}</td>
             <td>{{article.prix|number:'1.2-2'}} €</td>
-            <td><a href="voirArticle.cde?id_article={{article.idArticle}}">Résumé</a></td>
-            <td><a href="ajoutPanier.cde?id_article={{article.idArticle}}">Panier</a></td>
+            <td><button class="btn btn-primary" [routerLink]="['/article', article.idArticle]">Voir</button></td>
+            <td><button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">Panier</button></td>
         </tr>
     </tbody>
 </table>

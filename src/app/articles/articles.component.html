@@ -5,8 +5,6 @@
       <app-domaine [domaineId]="domaineId" (onChoose)="domaineSelected($event)" (onError)="onError($event)"></app-domaine>
     </div>
   </form>
-  <!-- <div *ngIf="domaineId > 0"> -->
     <app-article-list [articles]="articles" (reload)="reload()"></app-article-list>
-  <!-- </div> -->
   <app-error [error]="error"></app-error>
 </div>

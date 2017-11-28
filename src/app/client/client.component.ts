@@ -51,7 +51,7 @@ export class ClientComponent implements OnInit {
           this.error = error.message;
         }
       );
-    } else { 
+    } else {
       this.clientService.addClient(this.client).
         subscribe(() => {
           this.sharedService.isConnected = true;
@@ -75,7 +75,7 @@ export class ClientComponent implements OnInit {
     if (id > 0) {
       this.location.back();
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     }
   }
 }

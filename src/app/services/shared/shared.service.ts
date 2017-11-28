@@ -24,7 +24,7 @@ export class SharedService {
     this.originalUrl = '';
 
     if (url === '') {
-      url = '/home';
+      url = '/';
     }
 
     return url;

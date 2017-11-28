@@ -4,26 +4,35 @@ export class Panier {
   public articles: Article[] = [];
   public total: number = 0;
 
-  // constructor() {
-  //   this.articles = [];
-  //   this.total = 0;
-  // }
-
   public ajouterArticle(article: Article) {
-    if (!this.articles.includes(article)) {
+    if (!this.contains(article)) {
       this.articles.push(article);
 
       this.plus(article);
     }
   }
 
+  private find(article: Article) {
+    return this.articles.find(function(element) {
+      return element.idArticle === this.idArticle;
+    }, article);
+  }
+
+  public contains(article: Article) {
+    let a = this.find(article);
+
+    return !(a === undefined);
+  }
+
   public supprimerArticle(article: Article) {
-    if (this.articles.includes(article)) {
-      var predicate = function (article) {
-        return this.idArticle == article.idArticle;
-      }
-      let index = this.articles.findIndex(predicate);
+    let index = this.articles.findIndex(function(element, index) {
+      return element.idArticle === this.idArticle;
+    }, article);
+
+    if (index !== -1) {
       this.articles.splice(index, 1);
+
+      this.minus(article);
     }
   }
 

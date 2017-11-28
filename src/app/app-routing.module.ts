@@ -14,7 +14,6 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'compte', component: ClientComponent},
   {path: 'achats', component: AchatsComponent},
-  {path: 'panier', component: PanierComponent},
   {path: 'article', children: [
     {path: '', component: ArticleComponent},
     {path: ':id', component: ArticleComponent},
@@ -25,7 +24,7 @@ const routes: Routes = [
   ]},
   {path: 'panier', children: [
     {path: '', component: PanierComponent},
-    {path: 'ajouter', component: PanierComponent},
+    {path: 'ajouter/:id', component: PanierComponent},
     {path: 'supprimer/:id', component: PanierComponent},
     {path: 'valider', component: PanierComponent}
   ]},
