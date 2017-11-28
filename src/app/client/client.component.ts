@@ -44,8 +44,7 @@ export class ClientComponent implements OnInit {
       this.error = 'Vous devez sélectionner une catégorie !';
     } else if (id > 0) {
       this.clientService.updateClient(this.client).subscribe(() => {
-          let originalUrl: string = this.sharedService.getOriginalUrl();
-          this.router.navigate([originalUrl]);
+          this.router.navigate(['/article/last']);
         },
         error => {
           this.error = error.message;
@@ -56,11 +55,9 @@ export class ClientComponent implements OnInit {
         subscribe(() => {
           this.sharedService.isConnected = true;
           this.sharedService.currentClient = this.client;
+          this.router.navigate(['/article/last']);
         },
-        error => { this.error = error.message; },
-        () => {
-          this.router.navigate(['/']);
-        });
+        error => { this.error = error.message; });
     }
   }
 

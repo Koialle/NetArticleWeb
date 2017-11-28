@@ -20,7 +20,9 @@ export class ClientService {
   }
 
   updateClient(client: Client): Observable<any> {
-      return this.httpClient.put(this.netArticlesRestUrl + 'modifierClient', JSON.stringify(client), { headers: this.headers });
+    this.headers.append('responseType','text');
+    return this.httpClient.put(this.netArticlesRestUrl + 'modifierClient', JSON.stringify(client),
+    { headers: this.headers, responseType: 'text' });
   }
 
   addClient(client: Client): Observable<any> {
