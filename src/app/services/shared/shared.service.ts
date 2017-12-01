@@ -25,4 +25,16 @@ export class SharedService {
 
     return url;
   }
+
+  public setCurrentClient(client: Client): void {
+    this.currentClient = client;
+  }
+
+  public getCurrentClient() {
+    if(this.currentClient){      
+      return this.currentClient;
+    } else {
+      return undefined;
+    }
+  }
 }
