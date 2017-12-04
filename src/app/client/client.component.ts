@@ -13,7 +13,6 @@ import { Categorie } from '../models/categorie';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-
   public client: Client;
   public error: string;
   public title: string;
