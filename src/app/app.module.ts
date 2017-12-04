@@ -31,7 +31,8 @@ import { CommonService } from './services/common/common.service';
 import { RedigeService } from './services/redige/redige.service';
 
 // Guards
-import { AuthGuard } from './guards/auth.guard';
+import { ClientGuard } from './guards/client.guard';
+import { AuteurGuard } from './guards/auteur.guard';
 import { PanierComponent } from './panier/panier.component';
 
 
@@ -64,7 +65,8 @@ import { PanierComponent } from './panier/panier.component';
     ClientService,
     CategorieService,
     AchatsService,
-    AuthGuard,
+    ClientGuard,
+    AuteurGuard,
     ArticleService,
     CommonService,
     RedigeService

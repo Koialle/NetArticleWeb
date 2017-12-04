@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,10 @@ import { SharedService } from '../services/shared/shared.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  constructor(public sharedService: SharedService) { }
+  constructor(
+    public sharedService: SharedService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -15,6 +19,7 @@ export class MenuComponent implements OnInit {
   public logout(): void {
     localStorage.removeItem('currentClient');
     localStorage.removeItem('currentAuthor');
+    this.router.navigate(['/article/last']);
   }
 
   public isLogged(): boolean {
