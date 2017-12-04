@@ -10,13 +10,31 @@ export class MenuComponent implements OnInit {
   constructor(public sharedService: SharedService) { }
 
   ngOnInit() {
-    this.sharedService.isConnected = false;
-    this.sharedService.currentClient = null;
-    this.sharedService.currentAuteur = null;
   }
 
   public logout(): void {
-    this.sharedService.isConnected = false;
-    this.sharedService.currentAuteur = null;
+    localStorage.removeItem('currentClient');
+    localStorage.removeItem('currentAuthor');
+  }
+
+  public isLogged(): boolean {
+    if(localStorage.getItem('currentClient') || localStorage.getItem('currentAuthor')) {
+      return true;
+    }
+    return false
+  }
+
+  public isAuthor(): boolean {
+    if(localStorage.getItem('currentAuthor')){
+      return true;
+    }
+    return false;
+  }
+
+  public isClient(): boolean {
+    if(localStorage.getItem('currentClient')){
+      return true;
+    }
+    return false;
   }
 }

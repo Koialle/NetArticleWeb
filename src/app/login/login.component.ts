@@ -39,9 +39,8 @@ export class LoginComponent implements OnInit {
         (client) => {
           this.client = client;
           if ((this.pwdClient === this.client.pwdClient)) {
-            this.sharedService.isConnected = true;
-            this.sharedService.currentClient = this.client;
-            this.router.navigate(['/home']);
+            localStorage.setItem('currentClient', JSON.stringify(this.client));
+            this.router.navigate(['/article/last']);
           } else {
             this.error = 'Login ou mot de passe erroné !';
           }
@@ -55,9 +54,8 @@ export class LoginComponent implements OnInit {
         (auteur) => {
           this.auteur = auteur;
           if ((this.pwdClient === this.auteur.pwdAuteur)) {
-            this.sharedService.isConnected = true;
-            this.sharedService.currentAuteur = this.auteur;
-            this.router.navigate(['/home']);
+            localStorage.setItem('currentAuthor', JSON.stringify(this.auteur));
+            this.router.navigate(['/article/last']);
           } else {
             this.error = 'Login ou mot de passe erroné ! Êtes-vous certain.e d\être auteur.e ?';
           }

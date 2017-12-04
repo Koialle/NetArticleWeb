@@ -31,8 +31,8 @@ export class ClientComponent implements OnInit {
   ngOnInit() {
     this.client = new Client();
     this.client.categorie = new Categorie();
-    if (this.sharedService.currentClient) {
-      this.client = this.sharedService.currentClient;
+    if (localStorage.getItem('currentClient')) {
+      this.client = JSON.parse(localStorage.getItem('currentClient'));;
       this.title = 'Modifiez vos informations personelles';
     } else {
       this.title = 'Créer un compte client';
