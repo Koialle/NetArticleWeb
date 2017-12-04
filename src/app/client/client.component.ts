@@ -32,7 +32,7 @@ export class ClientComponent implements OnInit {
     this.client = new Client();
     this.client.categorie = new Categorie();
     if (localStorage.getItem('currentClient')) {
-      this.client = JSON.parse(localStorage.getItem('currentClient'));;
+      this.client = JSON.parse(localStorage.getItem('currentClient'));
       this.title = 'Modifiez vos informations personelles';
     } else {
       this.title = 'Créer un compte client';
@@ -44,6 +44,7 @@ export class ClientComponent implements OnInit {
       this.error = 'Vous devez sélectionner une catégorie !';
     } else if (id > 0) {
       this.clientService.updateClient(this.client).subscribe(() => {
+          localStorage.setItem('currentClient', JSON.stringify(this.client));
           let originalUrl: string = this.sharedService.getOriginalUrl();
           this.router.navigate([originalUrl]);
         },
@@ -54,8 +55,7 @@ export class ClientComponent implements OnInit {
     } else { 
       this.clientService.addClient(this.client).
         subscribe(() => {
-          this.sharedService.isConnected = true;
-          this.sharedService.currentClient = this.client;
+          localStorage.setItem('currentClient', JSON.stringify(this.client));
         },
         error => { this.error = error.message; },
         () => {
