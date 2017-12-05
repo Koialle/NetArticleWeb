@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           this.client = client;
           if ((this.pwdClient === this.client.pwdClient)) {
             localStorage.setItem('currentClient', JSON.stringify(this.client));
-            this.router.navigate(['/article/last']);
+            this.router.navigate(['/article/last']);            
           } else {
             this.error = 'Login ou mot de passe erroné !';
           }
