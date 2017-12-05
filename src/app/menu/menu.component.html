@@ -18,7 +18,7 @@
                 <li *ngIf="sharedService.currentClient"><a href="#">Panier</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <select #langSelect (change)="translate.use(langSelect.value)">
+                <select #langSelect (change)="changerLangue(langSelect.value)">
                     <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
                 </select>
                 <li *ngIf="!sharedService.isConnected"><a [routerLink]="['/login']" class="btn btn-link">Login</a></li>

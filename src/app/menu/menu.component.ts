@@ -13,9 +13,12 @@ export class MenuComponent implements OnInit {
     public sharedService: SharedService){
     translate.addLangs(["en", "fr"]);
     translate.setDefaultLang('en');
-
-    let browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    if (!localStorage.getItem('lang')) {
+      let browserLang = translate.getBrowserLang();
+      translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    } else {
+      translate.use(localStorage.getItem('lang'));
+    }    
   }
 
   ngOnInit() {
@@ -27,5 +30,12 @@ export class MenuComponent implements OnInit {
   public logout(): void {
     this.sharedService.isConnected = false;
     this.sharedService.currentAuteur = null;
+  }
+
+  public changerLangue(value: string): void {
+    this.translate.use(value);
+    // Save language to keep it if user refresh browser
+    localStorage.setItem('lang', value);
+    window.location.reload();
   }
 }
