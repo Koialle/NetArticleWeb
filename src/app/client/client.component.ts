@@ -39,7 +39,7 @@ export class ClientComponent implements OnInit {
       // and not validated
       this.clientService.getClient(this.sharedService.getCurrentClient().idClient).subscribe(
         (client) => {
-          this.client = client;          
+          this.client = client;
           this.title = 'Modifiez vos informations personelles';
         },
         (error) => {
@@ -62,14 +62,14 @@ export class ClientComponent implements OnInit {
           this.error = error.message;
         }
       );
-    } else { 
+    } else {
       this.clientService.addClient(this.client).
         subscribe(() => {
           this.loginService.getClient(this.client.loginClient).subscribe(
             (client) => {
               this.sharedService.isConnected = true;
               this.sharedService.setCurrentClient(client);
-              this.router.navigate(['/home']);              
+              this.router.navigate(['/home']);
             },
             (error) => {
               this.error = error.message;
@@ -90,12 +90,12 @@ export class ClientComponent implements OnInit {
         (error) => { this.error = error.message; }
       );
     } else {
-      this.client.categorie.idCategorie = 0;
+      this.client.categorie.idCategorie = undefined;
     }
   }
 
   isCategorieSelected(): boolean {
-    if (this.client.categorie.idCategorie == 0) {
+    if (!isNaN(this.client.categorie.idCategorie)) {
       return true;
     } else {
       return false;
