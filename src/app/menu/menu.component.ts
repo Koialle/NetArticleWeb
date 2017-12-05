@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared/shared.service';
+import {TranslateService} from 'ng2-translate';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,15 @@ import { SharedService } from '../services/shared/shared.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  constructor(public sharedService: SharedService) { }
+  constructor(
+    private translate: TranslateService,
+    public sharedService: SharedService){
+    translate.addLangs(["en", "fr"]);
+    translate.setDefaultLang('en');
+
+    let browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+  }
 
   ngOnInit() {
     this.sharedService.isConnected = false;

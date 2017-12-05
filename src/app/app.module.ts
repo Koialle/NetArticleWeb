@@ -66,9 +66,9 @@ export function createTranslateLoader(http: Http) {
     BrowserModule,
     TranslateModule.forRoot({
       provide: TranslateLoader,
-      useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/resources/i18n', '.json'),
+      useFactory: (createTranslateLoader),
       deps: [Http]
-  })
+    })
   ],
   providers: [
     SharedService,
