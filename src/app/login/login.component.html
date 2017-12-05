@@ -2,7 +2,7 @@
   <h2 align="center">{{title}}</h2>
   <form class="form-signin form-horizontal" name="form" role="form" name="loginForm" (ngSubmit)="login()" #f="ngForm" novalidate>
       <div class="form-group">
-          <label class="col-sm-3 col-md-3 control-label">Login : </label>
+          <label class="col-sm-3 col-md-3 control-label">{{ 'LOGIN' | translate }} </label>
           <div class="col-sm-3  col-md-3">
               <input type="text" class="form-control" name="userlogin" [(ngModel)]="loginClient" required />
           </div>

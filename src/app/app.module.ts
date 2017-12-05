@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpModule, Http } from '@angular/http';
+import {TranslateModule, TranslateLoader, TranslateStaticLoader} from 'ng2-translate';
 
 // Components
 import { AppComponent } from './app.component';
@@ -34,6 +36,9 @@ import { RedigeService } from './services/redige/redige.service';
 import { AuthGuard } from './guards/auth.guard';
 import { PanierComponent } from './panier/panier.component';
 
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, './assets/resources/i18n', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -56,7 +61,14 @@ import { PanierComponent } from './panier/panier.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule,
+    BrowserModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/resources/i18n', '.json'),
+      deps: [Http]
+  })
   ],
   providers: [
     SharedService,
