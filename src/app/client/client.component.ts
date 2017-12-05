@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { SharedService } from '../services/shared/shared.service';
 import { ClientService } from '../services/client/client.service';
 import { CategorieService } from '../services/categorie/categorie.service';
+import { LoginService } from '../services/login/login.service';
 import { Client } from '../models/client';
 import { Categorie } from '../models/categorie';
 
@@ -13,7 +14,6 @@ import { Categorie } from '../models/categorie';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-
   public client: Client;
   public error: string;
   public title: string;
@@ -23,6 +23,7 @@ export class ClientComponent implements OnInit {
     private sharedService: SharedService,
     private clientService: ClientService,
     private categorieService: CategorieService,
+    private loginService: LoginService,
     private router: Router,
     private location: Location,
     private activatedRoute: ActivatedRoute
@@ -31,9 +32,20 @@ export class ClientComponent implements OnInit {
   ngOnInit() {
     this.client = new Client();
     this.client.categorie = new Categorie();
-    if (this.sharedService.currentClient) {
-      this.client = this.sharedService.currentClient;
-      this.title = 'Modifiez vos informations personelles';
+    // If a client is currently logged
+    if (this.sharedService.getCurrentClient()) {
+      // We have to reload client each time we get to the page
+      // It is to avoid having previous information types into from
+      // and not validated
+      this.clientService.getClient(this.sharedService.getCurrentClient().idClient).subscribe(
+        (client) => {
+          this.client = client;
+          this.title = 'Modifiez vos informations personelles';
+        },
+        (error) => {
+          this.error = error.message;
+        }
+      );
     } else {
       this.title = 'Créer un compte client';
     }
@@ -44,31 +56,50 @@ export class ClientComponent implements OnInit {
       this.error = 'Vous devez sélectionner une catégorie !';
     } else if (id > 0) {
       this.clientService.updateClient(this.client).subscribe(() => {
-          let originalUrl: string = this.sharedService.getOriginalUrl();
-          this.router.navigate([originalUrl]);
+          this.router.navigate(['/article/last']);
         },
         error => {
           this.error = error.message;
         }
       );
-    } else { 
+    } else {
       this.clientService.addClient(this.client).
         subscribe(() => {
+          this.loginService.getClient(this.client.loginClient).subscribe(
+            (client) => {
+              this.sharedService.isConnected = true;
+              this.sharedService.setCurrentClient(client);
+              this.router.navigate(['/home']);
+            },
+            (error) => {
+              this.error = error.message;
+            }
+          );
           this.sharedService.isConnected = true;
-          this.sharedService.currentClient = this.client;
+          this.sharedService.setCurrentClient(this.client);
+          this.router.navigate(['/article/last']);
         },
-        error => { this.error = error.message; },
-        () => {
-          this.router.navigate(['/']);
-        });
+        error => { this.error = error.message; });
     }
   }
 
   categorieSelected(categorie_id: number): void {
-    this.categorieService.getCategorie(categorie_id).subscribe(
-      (categorie) => { this.client.categorie = categorie; },
-      (error) => { this.error = error.message; }
-    );
+    if (categorie_id) {
+      this.categorieService.getCategorie(categorie_id).subscribe(
+        (categorie) => { this.client.categorie = categorie; },
+        (error) => { this.error = error.message; }
+      );
+    } else {
+      this.client.categorie.idCategorie = undefined;
+    }
+  }
+
+  isCategorieSelected(): boolean {
+    if (!isNaN(this.client.categorie.idCategorie)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   cancel(id: number) {
