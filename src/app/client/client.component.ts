@@ -46,8 +46,7 @@ export class ClientComponent implements OnInit {
     } else if (id > 0) {
       this.clientService.updateClient(this.client).subscribe(() => {
           localStorage.setItem('currentClient', JSON.stringify(this.client));
-          let originalUrl: string = this.sharedService.getOriginalUrl();
-          this.router.navigate([originalUrl]);
+          this.router.navigate(['/article/last']);
         },
         error => {
           this.error = error.message;
@@ -56,7 +55,16 @@ export class ClientComponent implements OnInit {
     } else {
       this.clientService.addClient(this.client).
         subscribe(() => {
-          localStorage.setItem('currentClient', JSON.stringify(this.client));
+          this.loginService.getClient(this.client.loginClient).subscribe(
+            (client) => {
+              this.client = client;
+                localStorage.setItem('currentClient', JSON.stringify(this.client));
+                this.router.navigate(['/article/last']);     
+            },
+            (error) => {
+              this.error = error.message;
+            }
+          );
         },
         error => { this.error = error.message; });
     }
@@ -85,7 +93,7 @@ export class ClientComponent implements OnInit {
     if (id > 0) {
       this.location.back();
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/article/last']);
     }
   }
 }

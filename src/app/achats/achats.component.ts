@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Achat } from '../models/achat';
+import { Client } from '../models/client';
 import { AchatsService } from '../services/achats/achats.service';
-import { SharedService } from '../services/shared/shared.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
@@ -11,20 +11,20 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./achats.component.css']
 })
 export class AchatsComponent implements OnInit {
-
   public achats: Achat[];
   public error: string;
   public title: string;
 
   constructor(
     private achatsService: AchatsService,
-    private sharedService: SharedService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {  }
 
   ngOnInit() {
-    this.getAchats(this.sharedService.currentClient.idClient);
+    this.achats = [];
+    let client : Client = JSON.parse(localStorage.getItem('currentClient'));
+    this.getAchats(client.idClient);
   }
 
   getAchats(id: number): void {
@@ -39,6 +39,7 @@ export class AchatsComponent implements OnInit {
   }
 
   reload(): void {
-     this.getAchats(this.sharedService.currentClient.idClient);
+    let client : Client = JSON.parse(localStorage.getItem('currentClient'));
+    this.getAchats(client.idClient);
   }
 }

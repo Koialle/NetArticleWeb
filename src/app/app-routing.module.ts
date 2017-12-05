@@ -13,7 +13,7 @@ import { RedigeComponent } from './redige/redige.component';
 
 const routes: Routes = [
   // @TODO remove HomeComponent
-  {path: '',   redirectTo: '/home', pathMatch: 'full'},
+  {path: '',   redirectTo: '/article/last', pathMatch: 'full'},
   {path: 'home',   redirectTo: '/article/last', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'compte', component: ClientComponent},
