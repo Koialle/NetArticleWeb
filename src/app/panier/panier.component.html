@@ -14,7 +14,7 @@
               <td>{{article.idArticle}}</td>
               <td>{{article.titre}}</td>
               <td>{{article.prix|number:'1.2-2'}} €</td>
-              <td><a class="btn btn-primary" [routerLink]="['/panier/supprimer', article.idArticle]">Supprimer</a></td>
+              <td><a class="btn btn-primary" (click)="supprimerArticle(article.idArticle)">Supprimer</a></td>
           </tr>
           <tr>
               <td colspan="2" style="text-align: right">Montant total</td>
@@ -23,7 +23,8 @@
       </tbody>
   </table>
   <div *ngIf="panier.articles.length > 0">
-      <a class="btn btn-primary" [routerLink]="['/panier/valider']"><span class="glyphicon glyphicon-log-in"></span> Valider panier</a>
+      <a class="btn btn-primary" (click)="validerPanier()"><span class="glyphicon glyphicon-log-in"></span> Valider panier</a>
+      <p><a [routerLink]="['/articles']">Consulter le catalogue d'articles.</a></p>
   </div>
   <p *ngIf="panier.articles.length == 0">Votre panier est vide. <a [routerLink]="['/articles']">Consulter le catalogue d'articles.</a></p>
   <app-error [error]="error"></app-error>

@@ -43,4 +43,29 @@ export class Panier {
   private minus(article: Article) {
     this.total -= article.prix;
   }
+
+  // toJSON is automatically used by JSON.stringify
+  toJSON(): Panier {
+    // copy all fields from `this` to an empty object and return in
+    return Object.assign({}, this);
+  }
+
+  // fromJSON is used to convert an serialized version
+  // of the Panier to an instance of the class
+  static fromJSON(json: JSON|string): Panier {
+    if (typeof json === 'string') {
+      // if it's a string, parse it first
+      return JSON.parse(json, Panier.reviver);
+    } else {
+      let panier = Object.create(Panier.prototype);
+      // copy all the fields from the json object
+      return Object.assign(panier, json);
+    }
+  }
+
+  // reviver can be passed as the second parameter to JSON.parse
+  // to automatically call Panier.fromJSON on the resulting value.
+  static reviver(key: string, value: any): any {
+    return key === "" ? Panier.fromJSON(value) : value;
+  }
 }

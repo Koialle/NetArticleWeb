@@ -29,7 +29,6 @@ import { AchatsService } from './services/achats/achats.service';
 import { ArticleService } from './services/article/article.service';
 import { CommonService } from './services/common/common.service';
 import { RedigeService } from './services/redige/redige.service';
-import { AchatService } from './services/achat/achat.service';
 import { PanierService } from './services/panier/panier.service';
 
 // Guards
@@ -67,7 +66,6 @@ import { AuthGuard } from './guards/auth.guard';
     ArticleService,
     CommonService,
     RedigeService,
-    AchatService,
     PanierService
   ],
   bootstrap: [AppComponent]

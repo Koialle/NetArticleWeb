@@ -9,11 +9,6 @@ export class SharedService {
   public currentClient: Client;
   public currentAuteur: Auteur;
   private originalUrl: string;
-  private panier: Panier;
-
-  constructor() {
-    this.panier = new Panier();
-  }
 
   public setOriginalUrl(url: string): void {
     this.originalUrl = url;
@@ -31,10 +26,20 @@ export class SharedService {
   }
 
   public setPanier(panier: Panier) {
-    this.panier =  panier;
+    localStorage.setItem('panier', JSON.stringify(panier));
   }
 
   public getPanier(): Panier {
-    return this.panier;
+    var panier : Panier = Panier.fromJSON(localStorage.getItem('panier'));
+
+    if (panier == undefined) {
+      return new Panier();
+    } else {
+      return panier;
+    }
+  }
+
+  public clearPanier(): void {
+    localStorage.setItem('panier', JSON.stringify(new Panier()));
   }
 }

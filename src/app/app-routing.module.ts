@@ -24,9 +24,7 @@ const routes: Routes = [
   ]},
   {path: 'panier', children: [
     {path: '', component: PanierComponent},
-    {path: 'ajouter/:id', component: PanierComponent},
-    {path: 'supprimer/:id', component: PanierComponent},
-    {path: 'valider', component: PanierComponent}
+    {path: 'ajouter/:id', component: PanierComponent}
   ]},
   {path: 'oeuvres', component: RedigeComponent}
 ];
