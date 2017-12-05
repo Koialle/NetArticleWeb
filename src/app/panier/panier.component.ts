@@ -90,35 +90,38 @@ export class PanierComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    var achats : Achat[];
+    var listeAchats : Achat[];
     var client : Client = this.sharedService.currentClient;
 
-    this.achatService.getClientAchats(client.idClient).subscribe(achats => {
-      achats as Achat[]
-    });
+    this.achatService.getClientAchats(client.idClient).subscribe(
+      (achats) => {
+        listeAchats = achats;
 
-    if (this.panier === undefined) {
-      this.panier = this.getPanier();
-    }
-
-    this.panier.articles.forEach(article => {
-        // Check client hasn't already article
-        if (this.checkAchatsContainsArticle(achats, article)) {
-            this.error = "Vous possédez déjà l'article " + article.titre;
-        } else {
-            // Add article
-            var achat = new Achat();
-            achat.idArticle = article.idArticle;
-            achat.idClient = client.idClient;
-            this.achatService.acheterArticle(client.idClient, article.idArticle).subscribe(
-              () => {
-                this.sharedService.clearPanier();
-                this.router.navigate(['/achats']);
-              },
-              (error) => { this.error = error.message }
-            )
+        if (this.panier === undefined) {
+          this.panier = this.getPanier();
         }
-    });
+
+        this.panier.articles.forEach(article => {
+            // Check client hasn't already article
+            if (this.checkAchatsContainsArticle(listeAchats, article)) {
+                this.error = "Vous possédez déjà l'article " + article.titre;
+                //this.panier.supprimerArticle(article);
+            } else {
+                // Add article
+                this.achatService.acheterArticle(client.idClient, article.idArticle).subscribe(
+                  () => {
+                    this.sharedService.clearPanier();
+                    this.router.navigate(['/achats']);
+                  },
+                  (error) => {
+                    this.error = (error.error !== null) ? this.readErrorMessage(error.error) : error.message;
+                  }
+                )
+            }
+        });
+      },
+      (error) => { this.error = error.message }
+    );
   }
 
   getPanier() : Panier {
@@ -130,12 +133,20 @@ export class PanierComponent implements OnInit {
   }
 
   private checkAchatsContainsArticle(achats: Achat[], article: Article) : boolean {
-    achats.forEach(achat => {
-      if (achat.article == article) {
-        return true;
+    if (achats instanceof Array && achats.length) {
+      for (let a of achats) {
+        if (a.article.idArticle === article.idArticle) {
+          return true;
+        }
       }
-    });
+    }
 
     return false;
+  }
+
+  private readErrorMessage(error: string) {
+    var message  = JSON.parse(error);
+
+    return message.message.split(":", 2)[1].trim();
   }
 }
