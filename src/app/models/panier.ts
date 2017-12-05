@@ -4,6 +4,14 @@ export class Panier {
   public articles: Article[] = [];
   public total: number = 0;
 
+  public getNbArticles(): number {
+    return this.articles.length;
+  }
+
+  public getMontantTotal(): number {
+    return this.total;
+  }
+
   public ajouterArticle(article: Article) {
     if (!this.contains(article)) {
       this.articles.push(article);

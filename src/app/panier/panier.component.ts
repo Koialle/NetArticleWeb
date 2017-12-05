@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared/shared.service';
 import { ArticleService } from '../services/article/article.service';
 import { AchatsService } from '../services/achats/achats.service';
+import { PanierService } from '../services/panier/panier.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Panier } from '../models/panier';
 import { Article } from '../models/article';
@@ -20,6 +21,7 @@ export class PanierComponent implements OnInit {
   constructor(
     private articleService: ArticleService,
     private sharedService: SharedService,
+    private panierService: PanierService,
     private activatedRoute: ActivatedRoute,
     private achatService: AchatsService,
     private router: Router
@@ -110,7 +112,7 @@ export class PanierComponent implements OnInit {
                 // Add article
                 this.achatService.acheterArticle(client.idClient, article.idArticle).subscribe(
                   () => {
-                    this.sharedService.clearPanier();
+                    this.panierService.clearPanier();
                     this.router.navigate(['/achats']);
                   },
                   (error) => {
@@ -124,12 +126,12 @@ export class PanierComponent implements OnInit {
     );
   }
 
-  getPanier() : Panier {
-    return this.sharedService.getPanier();
+  private getPanier() : Panier {
+    return this.panierService.getPanier();
   }
 
-  setPanier(panier: Panier) : void {
-    this.sharedService.setPanier(panier);
+  private setPanier(panier: Panier) : void {
+    this.panierService.setPanier(panier);
   }
 
   private checkAchatsContainsArticle(achats: Achat[], article: Article) : boolean {

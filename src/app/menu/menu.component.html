@@ -15,7 +15,11 @@
                 <li *ngIf="sharedService.currentClient"><a [routerLink]="['/achats']" routerLinkActive="active">Mes articles</a></li>
                 <li *ngIf="sharedService.currentAuteur"><a [routerLink]= "['/oeuvres']" routerLinkActive="active">Mes ouvrages</a></li>
                 <li *ngIf="sharedService.currentClient"><a [routerLink]= "['/compte']" routerLinkActive="active">Compte</a></li>
-                <li><a [routerLink]= "['/panier']" routerLinkActive="active">Panier</a></li>
+                <li>
+                  <a [routerLink]= "['/panier']" routerLinkActive="active">
+                    Panier <span class="badge badge-light">{{ panierService.getTaillePanier() }}</span>
+                  </a>
+              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="!sharedService.isConnected"><a [routerLink]="['/login']" class="btn btn-link">Login</a></li>
