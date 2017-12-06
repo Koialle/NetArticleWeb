@@ -2,10 +2,10 @@
     <thead>
         <tr>
             <td>Id</td>
-            <td>Titre</td>
-            <td>Prix</td>    
-            <td>Résumé</td>   
-            <td>Panier</td>                     
+            <td>{{ 'ARTICLE_LIST.TITLE' | translate }}</td>
+            <td>{{ 'ARTICLE_LIST.PRICE' | translate }}</td>    
+            <td>{{ 'ARTICLE_LIST.SUMMARY' | translate }}</td>   
+            <td>{{ 'ARTICLE_LIST.BASKET' | translate }}</td>                     
         </tr>
     </thead>
     <tbody>
@@ -13,8 +13,8 @@
             <td>{{article.idArticle}}</td>
             <td>{{article.titre}}</td>
             <td>{{article.prix}}</td>                    
-            <td><a href="voirArticle.cde?id_article={{article.idArticle}}">Résumé</a></td>                                     
-            <td><a href="ajoutPanier.cde?id_article={{article.idArticle}}">Panier</a></td>                       
+            <td><a href="voirArticle.cde?id_article={{article.idArticle}}">{{ 'ARTICLE_LIST.SUMMARY' | translate }}</a></td>                                     
+            <td><a href="ajoutPanier.cde?id_article={{article.idArticle}}">{{ 'ARTICLE_LIST.BASKET' | translate }}</a></td>                       
         </tr>
     </tbody>
 </table>

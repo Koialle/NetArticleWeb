@@ -1,3 +1,73 @@
 {
-    "LOGIN": "Identifiant :"
+    "LOGIN": {
+        "ID": "Identifiant",
+        "PASSWORD": "Mot de passe",
+        "AUTHOR": "Je suis un auteur",
+        "SUBMIT": "Valider",
+        "RESET": "Annuler",
+        "NOACCOUNT": "Pas encore de compte ? Inscrivez-vous dès maintenant."
+    },
+    "MENU": {
+        "HOME": "Acceuil",
+        "SEARCH": "Rechercher",
+        "ARTICLES": "Mes articles",
+        "WORK": "Mes oeuvres",
+        "ACCOUNT": "Compte",
+        "BASKET": "Panier",
+        "LOGIN": "Se connecter",
+        "LOGOUT": "Se déconnecter"
+    },
+    "ACHATS": {
+        "TITLE": "Titre",
+        "FIELD": "Domaine",
+        "DATE": "Date d'achat",
+        "DDL": "Télécharger",
+        "NOARTICLES": "Oups, il semblerait que vous n'ayiez pas encore d'articles.",
+        "BUY": "En acheter ici."
+    },
+    "ARTICLE": {
+        "TITLE": "Titre",
+        "SUMMARY": "Résumé",
+        "PRICE": "Prix",
+        "DATE": "Date de publication",
+        "FIELD": "Domaine"
+    },
+    "ARTICLE_LIST": {
+        "TITLE": "Titre",
+        "SUMMARY": "Résumé",
+        "PRICE": "Prix",
+        "BASKET": "Panier"
+    },
+    "CATEGORIE": {
+        "LABEL": "Catégorie",
+        "SELECT": "Sélectionnez votre catégorie"
+    },
+    "CLIENT": {
+        "IDENTITY": "Identité",
+        "IDENTITY_PLACEHOLDER": "NOM Prénom",
+        "ADDRESS": "Adresse",
+        "ADDRESS_PLACEHOLDER": "Adresse",
+        "CREDITS": "Crédits",
+        "CREDITS_PLACEHOLDER": "Crédits",
+        "LOGIN": "Identifiant",
+        "LOGIN_PLACEHOLDER": "Identifiant utilisé pour se connecter",
+        "PASSWORD": "Mot de passe",
+        "PASSWORD_PLACEHOLDER": "Mot de passe utilisé pour se connecter",
+        "SUBMIT": "Valider",
+        "CANCEL": "Annuler"
+    },
+    "DOMAINE": {
+        "LABEL": "Domaine",
+        "SELECT": "Sélectionner un domaine"
+    },
+    "REDIGE": {
+        "EARNINGS": "Vos oeuvres vous ont rapporté ",
+        "TITLE": "Titre",
+        "SUMMARY": "Résumé",
+        "PRICE": "Prix",
+        "PART": "Participation",
+        "DATE": "Date de publication",
+        "FIELD": "Domaine",
+        "NOWORK": "Oups, il semblerait que vous n'ayiez pas encore écrit d'oeuvres. A votre plume !"
+    }
 }

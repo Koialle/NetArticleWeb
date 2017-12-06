@@ -5,9 +5,9 @@
       <thead>
         <tr>
           <th>Id</th>
-          <th>Titre</th>
-          <th>Domaine</th>
-          <th>Date achat</th>
+          <th>{{ 'ACHATS.TITLE' | translate }}</th>
+          <th>{{ 'ACHATS.FIELD' | translate }}</th>
+          <th>{{ 'ACHATS.DATE' | translate }}</th>
           <th></th>
         </tr>
       </thead>
@@ -17,11 +17,11 @@
             <td> {{ achat.article.titre }} </td>
             <td> {{ achat.article.domaine.libdomaine }} </td>
             <td> {{ achat.dateAchat |date: 'shortDate'}} </td>
-            <td> <a base href="../../resources/fichiers/{{ achat.article.fichier }}">Télécharger</a></td>
+            <td> <a base href="../../resources/fichiers/{{ achat.article.fichier }}">{{ 'ACHATS.DDL' | translate }}</a></td>
           </tr>
         </tbody>
     </table>
   </div>
-  <p *ngIf="achats.length == 0"> Oups, il semblerait que vous n'ayiez pas encore d'articles. <a [routerLink]="['/articles']">En acheter ici.</a></p>
+  <p *ngIf="achats.length == 0"> {{ 'ACHATS.NOARTICLES' | translate }} <a [routerLink]="['/articles']">{{ 'ACHATS.BUY' | translate }}</a></p>
   <app-error [error]="error" ></app-error>
 </div>

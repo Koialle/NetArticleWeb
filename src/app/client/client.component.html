@@ -6,33 +6,33 @@
     novalidate>
 
     <div class="form-group">
-      <label class="col-sm-3 col-md-2 control-label">Identité : </label>
+      <label class="col-sm-3 col-md-2 control-label">{{ 'CLIENT.IDENTITY' | translate }}</label>
       <div class="col-sm-6  col-md-5">
-        <input type="text" name="name" [(ngModel)]="client.identiteClient" class="form-control" placeholder="Renseignez votre identité (NOM Prénom)" required autofocus>
+        <input type="text" name="name" [(ngModel)]="client.identiteClient" class="form-control" placeholder="{{ 'CLIENT.IDENTITY_PLACEHOLDER' | translate }}" required autofocus>
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-3  col-md-2 control-label">Adresse : </label>
+      <label class="col-sm-3  col-md-2 control-label">{{ 'CLIENT.ADDRESS' | translate }}</label>
       <div class="col-sm-6 col-md-2">
-        <input type="text" class="form-control" [(ngModel)]="client.adresseClient" placeholder="Adresse" required name="adresseClient">
+        <input type="text" class="form-control" [(ngModel)]="client.adresseClient" placeholder="{{ 'CLIENT.ADDRESS_PLACEHOLDER' | translate }}" required name="adresseClient">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-3  col-md-2 control-label">Crédits : </label>
+      <label class="col-sm-3  col-md-2 control-label">{{ 'CLIENT.CREDITS' | translate }} </label>
       <div class="col-sm-6 col-md-2">
-        <input type="currency" name="credits" [(ngModel)]="client.credits"  class="form-control" placeholder="Crédits" required>
+        <input type="currency" name="credits" [(ngModel)]="client.credits"  class="form-control" placeholder="{{ 'CLIENT.CREDITS_PLACEHOLDER' | translate }}" required>
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-3  col-md-2 control-label">Login : </label>
+      <label class="col-sm-3  col-md-2 control-label">{{ 'CLIENT.LOGIN' | translate }}</label>
       <div class="col-sm-6 col-md-2">
-        <input type="text" class="form-control" [(ngModel)]="client.loginClient" placeholder="Identifiant" required name="loginClient">
+        <input type="text" class="form-control" [(ngModel)]="client.loginClient" placeholder="{{ 'CLIENT.LOGIN_PLACEHOLDER' | translate }}" required name="loginClient">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-3  col-md-2 control-label">Mot de passe : </label>
+      <label class="col-sm-3  col-md-2 control-label">{{ 'CLIENT.PASSWORD' | translate }}</label>
       <div class="col-sm-6 col-md-2">
-        <input type="password" class="form-control" [(ngModel)]="client.pwdClient" placeholder="Mot de passe" required name="pwdClient">
+        <input type="password" class="form-control" [(ngModel)]="client.pwdClient" placeholder="{{ 'CLIENT.PASSWORD_PLACEHOLDER' | translate }}" required name="pwdClient">
       </div>
     </div>
     <div class="form-group">
@@ -40,8 +40,8 @@
     </div>
     <div class="form-group">
       <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-        <button type="submit" class="btn btn-default btn-primary" [disabled]="!f.form.valid || error || !isCategorieSelected()">Valider</button> &nbsp;
-        <button type="button" (click)="cancel(client.idClient)" class="btn btn-default btn-primary">Annuler</button>
+        <button type="submit" class="btn btn-default btn-primary" [disabled]="!f.form.valid || error || !isCategorieSelected()">{{ 'CLIENT.SUBMIT' | translate }}</button> &nbsp;
+        <button type="button" (click)="cancel(client.idClient)" class="btn btn-default btn-primary">{{ 'CLIENT.CANCEL' | translate }}</button>
       </div>
     </div>
     <app-error [error]="error" > </app-error>

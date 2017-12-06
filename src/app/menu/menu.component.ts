@@ -33,7 +33,6 @@ export class MenuComponent implements OnInit {
   }
 
   public changerLangue(value: string): void {
-    this.translate.use(value);
     // Save language to keep it if user refresh browser
     localStorage.setItem('lang', value);
     window.location.reload();
