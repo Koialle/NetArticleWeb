@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Article } from '../models/article';
 import { ArticleService } from '../services/article/article.service';
+// import { SharedService } from '../services/shared/shared.service';
 
 @Component({
   selector: 'app-article',
@@ -16,8 +18,9 @@ export class ArticleComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    //private location: Location,
-    private articleService: ArticleService
+    public location: Location,
+    private articleService: ArticleService,
+    // private sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -54,4 +57,7 @@ export class ArticleComponent implements OnInit {
     );
   }
 
+  back() {
+    this.location.back();
+  }
 }

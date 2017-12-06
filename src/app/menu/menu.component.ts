@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared/shared.service';
 import {TranslateService} from 'ng2-translate';
+import { PanierService } from '../services/panier/panier.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,8 @@ import {TranslateService} from 'ng2-translate';
 export class MenuComponent implements OnInit {
   constructor(
     private translate: TranslateService,
-    public sharedService: SharedService){
+    public sharedService: SharedService,
+    public panierService: PanierService){
     translate.addLangs(["en", "fr"]);
     translate.setDefaultLang('en');
     if (!localStorage.getItem('lang')) {

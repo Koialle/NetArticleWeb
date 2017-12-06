@@ -3,18 +3,19 @@
         <tr>
             <td>Id</td>
             <td>{{ 'ARTICLE_LIST.TITLE' | translate }}</td>
-            <td>{{ 'ARTICLE_LIST.PRICE' | translate }}</td>    
-            <td>{{ 'ARTICLE_LIST.SUMMARY' | translate }}</td>   
-            <td>{{ 'ARTICLE_LIST.BASKET' | translate }}</td>                     
+            <td>{{ 'ARTICLE_LIST.PRICE' | translate }}</td>
+            <td>Actions</td>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let article of articles">
             <td>{{article.idArticle}}</td>
             <td>{{article.titre}}</td>
-            <td>{{article.prix}}</td>                    
-            <td><a href="voirArticle.cde?id_article={{article.idArticle}}">{{ 'ARTICLE_LIST.SUMMARY' | translate }}</a></td>                                     
-            <td><a href="ajoutPanier.cde?id_article={{article.idArticle}}">{{ 'ARTICLE_LIST.BASKET' | translate }}</a></td>                       
+            <td>{{article.prix|number:'1.2-2'}} €</td>            
+            <td>
+              <button class="btn btn-primary" [routerLink]="['/article', article.idArticle]">Détails</button>
+              <button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">Acheter</button>
+            </td>
         </tr>
     </tbody>
 </table>

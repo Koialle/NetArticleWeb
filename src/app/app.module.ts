@@ -10,7 +10,6 @@ import {TranslateModule, TranslateLoader, TranslateStaticLoader} from 'ng2-trans
 // Components
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { ClientComponent } from './client/client.component';
@@ -21,6 +20,7 @@ import { DomaineComponent } from './domaine/domaine.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { RedigeComponent } from './redige/redige.component';
+import { PanierComponent } from './panier/panier.component';
 
 // Services
 import { SharedService } from './services/shared/shared.service';
@@ -31,10 +31,10 @@ import { AchatsService } from './services/achats/achats.service';
 import { ArticleService } from './services/article/article.service';
 import { CommonService } from './services/common/common.service';
 import { RedigeService } from './services/redige/redige.service';
+import { PanierService } from './services/panier/panier.service';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
-import { PanierComponent } from './panier/panier.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/resources/i18n', '.json');
@@ -44,7 +44,6 @@ export function createTranslateLoader(http: Http) {
   declarations: [
     AppComponent,
     ErrorComponent,
-    HomeComponent,
     LoginComponent,
     MenuComponent,
     ClientComponent,
@@ -79,7 +78,8 @@ export function createTranslateLoader(http: Http) {
     AuthGuard,
     ArticleService,
     CommonService,
-    RedigeService
+    RedigeService,
+    PanierService
   ],
   bootstrap: [AppComponent]
 })

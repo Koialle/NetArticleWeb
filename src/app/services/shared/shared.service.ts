@@ -9,8 +9,6 @@ export class SharedService {
   public currentAuteur: Auteur;
   private originalUrl: string;
 
-  constructor() { }
-
   public setOriginalUrl(url: string): void {
     this.originalUrl = url;
   }
@@ -20,7 +18,7 @@ export class SharedService {
     this.originalUrl = '';
 
     if (url === '') {
-      url = '/home';
+      url = '/';
     }
 
     return url;

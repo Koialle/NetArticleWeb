@@ -26,7 +26,7 @@ export class ArticlesComponent implements OnInit {
     this.error = "";
     let domaineId = +this.activatedRoute.snapshot.paramMap.get('domaineId');
 
-    if (domaineId === 0) {
+    if (isNaN(domaineId) || domaineId === 0) {
       this.getArticles();
     } else if (domaineId  > 0) {
       this.getArticlesByDomaine(domaineId);
@@ -36,7 +36,6 @@ export class ArticlesComponent implements OnInit {
   getArticles() {
     this.title = "Liste des articles";
     this.domaineId = 0;
-    this.sharedService.setOriginalUrl('/articles');
     this.articleService.getArticles().subscribe(
       (articles) => {
         this.articles = articles;
@@ -61,19 +60,22 @@ export class ArticlesComponent implements OnInit {
     )
   }
 
-  reload() {
-    this.getArticlesByDomaine(this.domaineId);
-  }
-
   domaineSelected(domaineId: number) {
-    if (!isNaN(domaineId)) {
+    if (!isNaN(domaineId) && domaineId !== 0) {
+      // this.domaineId = domaineId;
+      // this.router.navigate(['/articles/domaine/' + domaineId]);
       this.getArticlesByDomaine(domaineId);
     } else {
       this.getArticles();
+      // this.router.navigate(['/articles']);
     }
   }
 
   onError(error: string) {
     this.error = error;
+  }
+
+  reload(): void {
+    this.domaineSelected(this.domaineId);
   }
 }
