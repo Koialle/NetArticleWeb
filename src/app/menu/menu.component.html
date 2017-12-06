@@ -7,38 +7,27 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-<<<<<<< HEAD
-            <a class="navbar-brand" routerLink="/home">{{ 'MENU.HOME' | translate }}</a>
+            <a class="navbar-brand" routerLink="/">{{ 'MENU.HOME' | translate }}</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-target">
             <ul class="nav navbar-nav">
-                <li *ngIf="sharedService.currentClient"><a [routerLink]="['/articles']">{{ 'MENU.SEARCH' | translate }}</a></li>
-                <li *ngIf="sharedService.currentClient"><a [routerLink]="['/achats']">{{ 'MENU.ARTICLES' | translate }}</a></li>
-                <li *ngIf="sharedService.currentAuteur"><a [routerLink]= "['/oeuvres']">{{ 'MENU.WORK' | translate }}</a></li>
-                <li *ngIf="sharedService.currentClient"><a [routerLink]= "['/compte']">{{ 'MENU.ACCOUNT' | translate }}</a></li>
-                <li *ngIf="sharedService.currentClient"><a href="#">{{ 'MENU.BASKET' | translate }}</a></li>
-=======
-            <a class="navbar-brand" [routerLink]="['/']">Accueil</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar-collapse-target">
-            <ul class="nav navbar-nav">
-                <li><a [routerLink]="['/articles']" routerLinkActive="active">Rechercher</a></li>
-                <li *ngIf="sharedService.currentClient"><a [routerLink]="['/achats']" routerLinkActive="active">Mes articles</a></li>
-                <li *ngIf="sharedService.currentAuteur"><a [routerLink]= "['/oeuvres']" routerLinkActive="active">Mes ouvrages</a></li>
-                <li *ngIf="sharedService.currentClient"><a [routerLink]= "['/compte']" routerLinkActive="active">Compte</a></li>
-                <li>
+                <li *ngIf="!isAuthor()"><a [routerLink]="['/articles']" routerLinkActive="active">{{ 'MENU.SEARCH' | translate }}</a></li>
+                <li *ngIf="isClient()"><a [routerLink]="['/achats']" routerLinkActive="active">{{ 'MENU.ARTICLES' | translate }}</a></li>
+                <li *ngIf="isAuthor()"><a [routerLink]= "['/oeuvres']" routerLinkActive="active">{{ 'MENU.WORK' | translate }}</a></li>
+                <li *ngIf="isClient()"><a [routerLink]= "['/compte']" routerLinkActive="active">{{ 'MENU.ACCOUNT' | translate }}</a></li>
+                <li *ngIf="!isAuthor()"><a href="#">{{ 'MENU.BASKET' | translate }}</a></li>
+                <li *ngIf="!isAuthor()">
                   <a [routerLink]= "['/panier']" routerLinkActive="active">
-                    Panier <span class="badge badge-light">{{ panierService.getTaillePanier() }}</span>
+                    {{ 'MENU.BASKET' | translate }} <span class="badge badge-light">{{ panierService.getTaillePanier() }}</span>
                   </a>
               </li>
->>>>>>> ce19b3397fb011a22ea3558157574ac4343a4b03
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <select #langSelect (change)="changerLangue(langSelect.value)">
                     <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
                 </select>
-                <li *ngIf="!sharedService.isConnected"><a [routerLink]="['/login']" class="btn btn-link">{{ 'MENU.LOGIN' | translate }}</a></li>
-                <li *ngIf="sharedService.isConnected"><a (click)="logout()">{{ 'MENU.LOGOUT' | translate }}</a></li>
+                <li *ngIf="!isLogged()"><a [routerLink]="['/login']" class="btn btn-link">{{ 'MENU.LOGIN' | translate }}</a></li>
+                <li *ngIf="isLogged()"><a (click)="logout()">{{ 'MENU.LOGOUT' | translate }}</a></li>
             </ul>
         </div>
     </div>

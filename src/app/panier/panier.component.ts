@@ -88,12 +88,12 @@ export class PanierComponent implements OnInit {
 
   validerPanier() {
     // Check client is authenticated
-    if (!this.sharedService.isConnected) {
+    if (!this.sharedService.isClientConnected()) {
       this.router.navigate(['/login']);
     }
 
     var listeAchats : Achat[];
-    var client : Client = this.sharedService.currentClient;
+    var client : Client = JSON.parse(this.sharedService.getCurrentClient());
 
     this.achatService.getClientAchats(client.idClient).subscribe(
       (achats) => {

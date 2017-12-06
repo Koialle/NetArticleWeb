@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ClientComponent } from './client/client.component';
 import { AchatsComponent } from './achats/achats.component';
-import { AuthGuard } from './guards/auth.guard';
+import { ClientGuard } from './guards/client.guard';
+import { AuteurGuard } from './guards/auteur.guard';
 import { ArticleComponent } from './article/article.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { PanierComponent } from './panier/panier.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path: '',   redirectTo: '/article/last', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'compte', component: ClientComponent},
-  {path: 'achats', component: AchatsComponent},
+  {path: 'achats', component: AchatsComponent, canActivate : [ClientGuard]},
   {path: 'article', children: [
     {path: '', component: ArticleComponent},
     {path: ':id', component: ArticleComponent},
@@ -26,7 +27,7 @@ const routes: Routes = [
     {path: '', component: PanierComponent},
     {path: 'ajouter/:id', component: PanierComponent}
   ]},
-  {path: 'oeuvres', component: RedigeComponent}
+  {path: 'oeuvres', component: RedigeComponent, canActivate : [AuteurGuard]}
 ];
 
 @NgModule({

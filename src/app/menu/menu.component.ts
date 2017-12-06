@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared/shared.service';
 import {TranslateService} from 'ng2-translate';
 import { PanierService } from '../services/panier/panier.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -12,6 +13,7 @@ export class MenuComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     public sharedService: SharedService,
+    private router: Router,
     public panierService: PanierService){
     translate.addLangs(["en", "fr"]);
     translate.setDefaultLang('en');
@@ -24,14 +26,23 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sharedService.isConnected = false;
-    this.sharedService.currentClient = null;
-    this.sharedService.currentAuteur = null;
   }
 
   public logout(): void {
-    this.sharedService.isConnected = false;
-    this.sharedService.currentAuteur = null;
+    this.sharedService.clearUser();
+    this.router.navigate(['/']);
+  }
+
+  public isLogged(): boolean {
+    return this.sharedService.isConnected();
+  }
+
+  public isAuthor(): boolean {
+    return this.sharedService.isAuteurConnected();
+  }
+
+  public isClient(): boolean {
+    return this.sharedService.isClientConnected();
   }
 
   public changerLangue(value: string): void {

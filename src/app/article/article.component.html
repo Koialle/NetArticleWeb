@@ -20,7 +20,7 @@
     </div>
     <div class="row">
       <label class="col-md-2 text-right">{{ 'ARTICLE.FIELD' | translate }}</label>
-      <div class="col-md-6">{{article.domaine.libdomaine}}</div>
+      <div class="col-md-6">{{article.domaine?.libdomaine}}</div>
     <button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">Ajouter au panier</button>
     <div *ngIf="">
       <button class="btn btn-primary" (click)="back()">Retour</button>

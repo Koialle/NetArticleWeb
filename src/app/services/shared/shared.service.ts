@@ -4,9 +4,6 @@ import { Auteur } from '../../models/auteur';
 
 @Injectable()
 export class SharedService {
-  public isConnected: boolean;
-  public currentClient: Client;
-  public currentAuteur: Auteur;
   private originalUrl: string;
 
   public setOriginalUrl(url: string): void {
@@ -14,25 +11,51 @@ export class SharedService {
   }
 
   public getOriginalUrl() {
-    let url: string = this.originalUrl;
-    this.originalUrl = '';
-
-    if (url === '') {
-      url = '/';
+    if (this.originalUrl === '') {
+      this.originalUrl = '/';
     }
 
-    return url;
+    return this.originalUrl;
   }
 
-  public setCurrentClient(client: Client): void {
-    this.currentClient = client;
+  public isConnected() {
+    if (localStorage.getItem('currentClient') || localStorage.getItem('currentAuthor')) {
+      return true;
+    }
+
+    return false;
+  }
+
+  public getCurrentUser() {
+    return localStorage.getItem('currentClient') || localStorage.getItem('currentAuthor');
+  }
+
+  public isAuteurConnected() {
+    return localStorage.getItem('currentAuthor') !== null;
+  }
+
+  public isClientConnected() {
+    return localStorage.getItem('currentClient') !== null;
   }
 
   public getCurrentClient() {
-    if(this.currentClient){      
-      return this.currentClient;
-    } else {
-      return undefined;
-    }
+    return localStorage.getItem('currentClient');
+  }
+
+  public getCurrentAuteur() {
+    return localStorage.getItem('currentAuthor');
+  }
+
+  public setCurrentClient(client: Client) {
+    localStorage.setItem('currentClient', JSON.stringify(client));
+  }
+
+  public setCurrentAuteur(author: Auteur) {
+    localStorage.setItem('currentAuthor', JSON.stringify(author));
+  }
+
+  public clearUser(): void {
+    localStorage.removeItem('currentClient');
+    localStorage.removeItem('currentAuthor');
   }
 }

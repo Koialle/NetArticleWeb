@@ -34,7 +34,8 @@ import { RedigeService } from './services/redige/redige.service';
 import { PanierService } from './services/panier/panier.service';
 
 // Guards
-import { AuthGuard } from './guards/auth.guard';
+import { ClientGuard } from './guards/client.guard';
+import { AuteurGuard } from './guards/auteur.guard';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/resources/i18n', '.json');
@@ -75,7 +76,8 @@ export function createTranslateLoader(http: Http) {
     ClientService,
     CategorieService,
     AchatsService,
-    AuthGuard,
+    ClientGuard,
+    AuteurGuard,
     ArticleService,
     CommonService,
     RedigeService,
