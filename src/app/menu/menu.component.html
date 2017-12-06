@@ -15,12 +15,11 @@
                 <li *ngIf="isClient()"><a [routerLink]="['/achats']" routerLinkActive="active">{{ 'MENU.ARTICLES' | translate }}</a></li>
                 <li *ngIf="isAuthor()"><a [routerLink]= "['/oeuvres']" routerLinkActive="active">{{ 'MENU.WORK' | translate }}</a></li>
                 <li *ngIf="isClient()"><a [routerLink]= "['/compte']" routerLinkActive="active">{{ 'MENU.ACCOUNT' | translate }}</a></li>
-                <li *ngIf="!isAuthor()"><a href="#">{{ 'MENU.BASKET' | translate }}</a></li>
                 <li *ngIf="!isAuthor()">
                   <a [routerLink]= "['/panier']" routerLinkActive="active">
                     {{ 'MENU.BASKET' | translate }} <span class="badge badge-light">{{ panierService.getTaillePanier() }}</span>
                   </a>
-              </li>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <select #langSelect (change)="changerLangue(langSelect.value)">

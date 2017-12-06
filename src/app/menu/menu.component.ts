@@ -15,14 +15,14 @@ export class MenuComponent implements OnInit {
     public sharedService: SharedService,
     private router: Router,
     public panierService: PanierService){
-    translate.addLangs(["en", "fr"]);
-    translate.setDefaultLang('en');
-    if (!localStorage.getItem('lang')) {
-      let browserLang = translate.getBrowserLang();
-      translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
-    } else {
-      translate.use(localStorage.getItem('lang'));
-    }    
+      translate.addLangs(["en", "fr"]);
+      translate.setDefaultLang('en');
+      if (!localStorage.getItem('lang')) {
+        let browserLang = translate.getBrowserLang();
+        translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+      } else {
+        translate.use(localStorage.getItem('lang'));
+      }    
   }
 
   ngOnInit() {
