@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Redige } from '../models/redige';
+import { Auteur } from '../models/auteur';
 import { RedigeService } from '../services/redige/redige.service';
 import { AchatsService } from '../services/achats/achats.service';
 import { SharedService } from '../services/shared/shared.service';
@@ -26,7 +27,7 @@ export class RedigeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getOeuvres(this.sharedService.currentAuteur.idAuteur);
+    this.reload();
   }
 
   getOeuvres(id: number): void {
@@ -44,7 +45,7 @@ export class RedigeComponent implements OnInit {
         /*obs.map((observable) => {
           observable.subscribe();
         });*/
-        Observable.forkJoin(obs).subscribe(()=> {         
+        Observable.forkJoin(obs).subscribe(()=> {
           this.router.navigate(['/oeuvres']);
         });
       },
@@ -53,6 +54,7 @@ export class RedigeComponent implements OnInit {
   }
 
   reload(): void {
-    this.getOeuvres(this.sharedService.currentAuteur.idAuteur);
+    var auteur : Auteur = JSON.parse(this.sharedService.getCurrentAuteur());
+    this.getOeuvres(auteur.idAuteur);
   }
 }

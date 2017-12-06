@@ -32,7 +32,8 @@ import { RedigeService } from './services/redige/redige.service';
 import { PanierService } from './services/panier/panier.service';
 
 // Guards
-import { AuthGuard } from './guards/auth.guard';
+import { ClientGuard } from './guards/client.guard';
+import { AuteurGuard } from './guards/auteur.guard';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { AuthGuard } from './guards/auth.guard';
     ClientService,
     CategorieService,
     AchatsService,
-    AuthGuard,
+    ClientGuard,
+    AuteurGuard,
     ArticleService,
     CommonService,
     RedigeService,

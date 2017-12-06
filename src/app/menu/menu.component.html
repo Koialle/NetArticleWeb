@@ -11,19 +11,19 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-target">
             <ul class="nav navbar-nav">
-                <li><a [routerLink]="['/articles']" routerLinkActive="active">Rechercher</a></li>
-                <li *ngIf="sharedService.currentClient"><a [routerLink]="['/achats']" routerLinkActive="active">Mes articles</a></li>
-                <li *ngIf="sharedService.currentAuteur"><a [routerLink]= "['/oeuvres']" routerLinkActive="active">Mes ouvrages</a></li>
-                <li *ngIf="sharedService.currentClient"><a [routerLink]= "['/compte']" routerLinkActive="active">Compte</a></li>
-                <li>
+                <li *ngIf="!isAuthor()"><a [routerLink]="['/articles']" routerLinkActive="active">Rechercher</a></li>
+                <li *ngIf="isClient()"><a [routerLink]="['/achats']" routerLinkActive="active">Mes articles</a></li>
+                <li *ngIf="isAuthor()"><a [routerLink]= "['/oeuvres']" routerLinkActive="active">Mes ouvrages</a></li>
+                <li *ngIf="isClient()"><a [routerLink]= "['/compte']" routerLinkActive="active">Compte</a></li>
+                <li *ngIf="!isAuthor()">
                   <a [routerLink]= "['/panier']" routerLinkActive="active">
                     Panier <span class="badge badge-light">{{ panierService.getTaillePanier() }}</span>
                   </a>
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li *ngIf="!sharedService.isConnected"><a [routerLink]="['/login']" class="btn btn-link">Login</a></li>
-                <li *ngIf="sharedService.isConnected"><a (click)="logout()">Logout</a></li>
+                <li *ngIf="!isLogged()"><a [routerLink]="['/login']" class="btn btn-link">Login</a></li>
+                <li *ngIf="isLogged()"><a (click)="logout()">Logout</a></li>
             </ul>
         </div>
     </div>

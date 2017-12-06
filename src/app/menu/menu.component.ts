@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared/shared.service';
 import { PanierService } from '../services/panier/panier.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,17 +11,27 @@ import { PanierService } from '../services/panier/panier.service';
 export class MenuComponent implements OnInit {
   constructor(
     public sharedService: SharedService,
-    public panierService: PanierService
+    public panierService: PanierService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.sharedService.isConnected = false;
-    this.sharedService.currentClient = null;
-    this.sharedService.currentAuteur = null;
   }
 
   public logout(): void {
-    this.sharedService.isConnected = false;
-    this.sharedService.currentAuteur = null;
+    this.sharedService.clearUser();
+    this.router.navigate(['/']);
+  }
+
+  public isLogged(): boolean {
+    return this.sharedService.isConnected();
+  }
+
+  public isAuthor(): boolean {
+    return this.sharedService.isAuteurConnected();
+  }
+
+  public isClient(): boolean {
+    return this.sharedService.isClientConnected();
   }
 }

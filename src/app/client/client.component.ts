@@ -32,20 +32,9 @@ export class ClientComponent implements OnInit {
   ngOnInit() {
     this.client = new Client();
     this.client.categorie = new Categorie();
-    // If a client is currently logged
-    if (this.sharedService.getCurrentClient()) {
-      // We have to reload client each time we get to the page
-      // It is to avoid having previous information types into from
-      // and not validated
-      this.clientService.getClient(this.sharedService.getCurrentClient().idClient).subscribe(
-        (client) => {
-          this.client = client;
-          this.title = 'Modifiez vos informations personelles';
-        },
-        (error) => {
-          this.error = error.message;
-        }
-      );
+    if (this.sharedService.isClientConnected()) {
+      this.client = JSON.parse(this.sharedService.getCurrentClient());
+      this.title = 'Modifiez vos informations personelles';
     } else {
       this.title = 'Créer un compte client';
     }
@@ -56,7 +45,8 @@ export class ClientComponent implements OnInit {
       this.error = 'Vous devez sélectionner une catégorie !';
     } else if (id > 0) {
       this.clientService.updateClient(this.client).subscribe(() => {
-          this.router.navigate(['/article/last']);
+          this.sharedService.setCurrentClient(this.client);
+          this.router.navigate(['/']);
         },
         error => {
           this.error = error.message;
@@ -67,17 +57,14 @@ export class ClientComponent implements OnInit {
         subscribe(() => {
           this.loginService.getClient(this.client.loginClient).subscribe(
             (client) => {
-              this.sharedService.isConnected = true;
-              this.sharedService.setCurrentClient(client);
-              this.router.navigate(['/home']);
+              this.client = client;
+              this.sharedService.setCurrentClient(this.client);
+              this.router.navigate(['/']);
             },
             (error) => {
               this.error = error.message;
             }
           );
-          this.sharedService.isConnected = true;
-          this.sharedService.setCurrentClient(this.client);
-          this.router.navigate(['/article/last']);
         },
         error => { this.error = error.message; });
     }
