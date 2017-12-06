@@ -1,26 +1,29 @@
-<div class="well">
-  <div class="row">
-      <label class="col-md-2 text-right">N° Article : </label>
-      <div class="col-md-6">{{article.idArticle}}</div>
+<div class="container">
+  <h2>{{article.titre}}</h2>
+  <div class="well">
+    <div class="row">
+        <label class="col-md-2 text-right">N° Article : </label>
+        <div class="col-md-6">{{article.idArticle}}</div>
+    </div>
+    <div class="row">
+        <label class="col-md-2 text-right">Résumé : </label>
+        <div class="col-md-9">{{article.resume}}</div>
+    </div>
+    <div class="row">
+        <label class="col-md-2 text-right">Prix : </label>
+        <div class="col-md-6">{{article.prix|number:'1.2-2'}} €</div>
+    </div>
+    <div class="row">
+        <label class="col-md-2 text-right">Date publication : </label>
+        <div class="col-md-6">{{article.dateArticle|date:'dd/MM/yyyy'}}</div>
+    </div>
+    <div class="row">
+        <label class="col-md-2 text-right">Domaine : </label>
+        <div class="col-md-6">{{article.domaine.libdomaine}}</div>
+    </div>
   </div>
-  <div class="row">
-      <label class="col-md-2 text-right">Titre :</label>
-      <div class="col-md-9">{{article.titre}}</div>
-  </div>
-  <div class="row">
-      <label class="col-md-2 text-right">Résumé : </label>
-      <div class="col-md-9">{{article.resume}}</div>
-  </div>
-  <div class="row">
-      <label class="col-md-2 text-right">Prix : </label>
-      <div class="col-md-6">{{article.prix|number:'1.2-2'}} €</div>
-  </div>
-  <div class="row">
-      <label class="col-md-2 text-right">Date publication : </label>
-      <div class="col-md-6">{{article.dateArticle|date:'dd/MM/yyyy'}}</div>
-  </div>
-  <div class="row">
-      <label class="col-md-2 text-right">Domaine : </label>
-      <div class="col-md-6">{{article.domaine.libdomaine}}</div>
+  <button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">Ajouter au panier</button>
+  <div *ngIf="">
+      <button class="btn btn-primary" (click)="back()">Retour</button>
   </div>
 </div>

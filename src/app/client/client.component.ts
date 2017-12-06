@@ -106,7 +106,7 @@ export class ClientComponent implements OnInit {
     if (id > 0) {
       this.location.back();
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     }
   }
 }

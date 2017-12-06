@@ -12,9 +12,10 @@ export class ArticleListComponent implements OnInit {
   @Input() public articles: Article[];
   @Output() reload = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
-
 }
