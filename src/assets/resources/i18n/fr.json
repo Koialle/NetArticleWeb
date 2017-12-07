@@ -69,5 +69,15 @@
         "DATE": "Date de publication",
         "FIELD": "Domaine",
         "NOWORK": "Oups, il semblerait que vous n'ayiez pas encore écrit d'oeuvres. A votre plume !"
+    },
+    "PANIER": {
+        "EARNINGS": "Vos oeuvres vous ont rapporté ",
+        "TITLE": "Titre",
+        "SUMMARY": "Résumé",
+        "PRICE": "Prix",
+        "PART": "Participation",
+        "DATE": "Date de publication",
+        "FIELD": "Domaine",
+        "NOWORK": "Oups, il semblerait que vous n'ayiez pas encore écrit d'oeuvres. A votre plume !"
     }
 }

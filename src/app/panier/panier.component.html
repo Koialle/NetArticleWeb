@@ -3,7 +3,6 @@
     <table class="table table-bordered table-striped">
       <thead>
           <tr>
-            <td>Id</td>
             <td>Titre</td>
             <td>Prix</td>
             <td>Supprimer</td>
@@ -11,7 +10,6 @@
       </thead>
       <tbody>
           <tr *ngFor="let article of panier.articles">
-              <td>{{article.idArticle}}</td>
               <td>{{article.titre}}</td>
               <td>{{article.prix|number:'1.2-2'}} €</td>
               <td><a class="btn btn-primary" (click)="supprimerArticle(article.idArticle)">Supprimer</a></td>
