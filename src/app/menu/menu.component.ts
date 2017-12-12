@@ -50,4 +50,11 @@ export class MenuComponent implements OnInit {
     localStorage.setItem('lang', value);
     window.location.reload();
   }
+
+  public checkCurrentLanguage(value: string): boolean {
+    if(localStorage.getItem('lang') === value){
+      return true;
+    }
+    return false;
+  }
 }

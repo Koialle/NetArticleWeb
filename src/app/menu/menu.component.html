@@ -21,10 +21,15 @@
                   </a>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <select #langSelect (change)="changerLangue(langSelect.value)">
-                    <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-                </select>
+            <ul class="nav navbar-nav navbar-right countryPictureCenter">
+                <a (click)="changerLangue('en')">
+                    <img src="/assets/resources/pictures/en.jpg" width="25" height="20"
+                    [ngClass]="{countryActivated: checkCurrentLanguage('en'), countryDisabled: !checkCurrentLanguage('en')}" />
+                </a>
+                <a (click)="changerLangue('fr')">
+                    <img src="/assets/resources/pictures/fr.jpg" width="25" height="20" class="space"
+                    [ngClass]="{countryActivated: checkCurrentLanguage('fr'), countryDisabled: !checkCurrentLanguage('fr')}" />
+                </a>           
                 <li *ngIf="!isLogged()"><a [routerLink]="['/login']" class="btn btn-link">{{ 'MENU.LOGIN' | translate }}</a></li>
                 <li *ngIf="isLogged()"><a (click)="logout()">{{ 'MENU.LOGOUT' | translate }}</a></li>
             </ul>
