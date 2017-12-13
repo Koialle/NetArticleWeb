@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Article } from '../models/article';
 import { ArticleService } from '../services/article/article.service';
-// import { SharedService } from '../services/shared/shared.service';
+import { SharedService } from '../services/shared/shared.service';
 
 @Component({
   selector: 'app-article',
@@ -20,7 +20,7 @@ export class ArticleComponent implements OnInit {
     private router: Router,
     public location: Location,
     private articleService: ArticleService,
-    // private sharedService: SharedService
+    private sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -55,6 +55,10 @@ export class ArticleComponent implements OnInit {
         this.error = error.message;
       }
     );
+  }
+
+  isAuthor() : boolean {
+    return this.sharedService.isAuteurConnected();
   }
 
   back() {

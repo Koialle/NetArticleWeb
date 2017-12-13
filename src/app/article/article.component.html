@@ -22,7 +22,7 @@
         <div class="col-md-6">{{article.domaine?.libdomaine}}</div>
     </div>
   </div>
-  <button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">Ajouter au panier</button>
+  <button *ngIf="!isAuthor()" class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">Ajouter au panier</button>
   <div *ngIf="">
       <button class="btn btn-primary" (click)="back()">Retour</button>
   </div>

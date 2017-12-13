@@ -43,9 +43,6 @@ export class RedigeComponent implements OnInit {
             this.totalRoyalties = this.totalRoyalties + (((redige.part/100)*redige.article.prix)*achats.length);
           }));
         });
-        /*obs.map((observable) => {
-          observable.subscribe();
-        });*/
         Observable.forkJoin(obs).subscribe(()=> {
           this.router.navigate(['/oeuvres']);
         });
