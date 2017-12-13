@@ -87,5 +87,8 @@
         "TOTAL" : "Montant total",
         "MAINTITLE" : "Panier",
         "SUBMIT" : "Valider le panier"
+    },
+    "FOOTER": {
+        "COPYRIGHTS": "Par Mélanie DUBREUIL et Ophélie EOUZAN"
     }
 }

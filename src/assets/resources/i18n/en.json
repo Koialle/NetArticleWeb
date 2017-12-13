@@ -87,5 +87,8 @@
         "TOTAL" : "Total amount",
         "MAINTITLE" : "Basket",
         "SUBMIT" : "Submit basket"
+    },
+    "FOOTER": {
+        "COPYRIGHTS": "By Mélanie DUBREUIL and Ophélie EOUZAN"
     }
 }

@@ -36,6 +36,7 @@ import { PanierService } from './services/panier/panier.service';
 // Guards
 import { ClientGuard } from './guards/client.guard';
 import { AuteurGuard } from './guards/auteur.guard';
+import { FooterComponent } from './footer/footer.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/resources/i18n', '.json');
@@ -56,6 +57,7 @@ export function createTranslateLoader(http: Http) {
     PanierComponent,
     AchatsComponent,
     RedigeComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
