@@ -18,6 +18,7 @@
         "LOGOUT": "Logout"
     },
     "ACHATS": {
+        "MAINTITLE": "My articles",
         "TITLE": "Title",
         "FIELD": "Field",
         "DATE": "Date of purchase",
@@ -30,19 +31,25 @@
         "SUMMARY": "Summary",
         "PRICE": "Price",
         "DATE": "Publication date",
-        "FIELD": "Field"
+        "FIELD": "Field",
+        "ADD" : "Add to basket",
+        "BACK" : "Back"
     },
     "ARTICLE_LIST": {
+        "MAINTITLE": "Article list",
         "TITLE": "Title",
         "SUMMARY": "Summary",
         "PRICE": "Price",
-        "BASKET": "Basket"
+        "BASKET": "Basket",
+        "DETAILS": "Details",
+        "BUY": "Buy"
     },
     "CATEGORIE": {
         "LABEL": "Category",
         "SELECT": "Choose your category"
     },
     "CLIENT": {
+        "MAINTITLE": "Your account",
         "IDENTITY": "Identity",
         "IDENTITY_PLACEHOLDER": "NAME Surname",
         "ADDRESS": "Address",
@@ -61,6 +68,7 @@
         "SELECT": "Select a field"
     },
     "REDIGE": {
+        "MAINTITLE" : "Your work",
         "EARNINGS": "You earned ",
         "TITLE": "Title",
         "SUMMARY": "Summary",
@@ -69,5 +77,15 @@
         "DATE": "Publication date",
         "FIELD": "Field",
         "NOWORK": "Oops, it seems like you haven't wrote something yet..."
+    },
+    "PANIER": {
+        "TITLE": "Title",
+        "PRICE": "Price",
+        "DELETE": "Delete",
+        "EMPTY" : "Empty basket.",
+        "SEE" : "See articles list !",
+        "TOTAL" : "Total amount",
+        "MAINTITLE" : "Basket",
+        "SUBMIT" : "Submit basket"
     }
 }

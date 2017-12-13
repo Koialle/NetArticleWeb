@@ -1,29 +1,29 @@
 <div class="col-md-9 col-md-offset-2">
-  <h1 align='center'>Panier</h1>
+  <h1 align='center'>{{ 'PANIER.MAINTITLE' | translate }}</h1>
     <table class="table table-bordered table-striped">
       <thead>
           <tr>
-            <td>Titre</td>
-            <td>Prix</td>
-            <td>Supprimer</td>
+            <td>{{ 'PANIER.TITLE' | translate }}</td>
+            <td>{{ 'PANIER.PRICE' | translate }}</td>
+            <td>{{ 'PANIER.DELETE' | translate }}</td>
           </tr>
       </thead>
       <tbody>
           <tr *ngFor="let article of panier.articles">
               <td>{{article.titre}}</td>
               <td>{{article.prix|number:'1.2-2'}} €</td>
-              <td><a class="btn btn-primary" (click)="supprimerArticle(article.idArticle)">Supprimer</a></td>
+              <td><a class="btn btn-primary" (click)="supprimerArticle(article.idArticle)">{{ 'PANIER.DELETE' | translate }}</a></td>
           </tr>
           <tr>
-              <td colspan="2" style="text-align: right">Montant total</td>
+              <td colspan="2" style="text-align: right">{{ 'PANIER.TOTAL' | translate }}</td>
               <td>{{panier.total|number:'1.2-2'}} €</td>
           </tr>
       </tbody>
   </table>
   <div *ngIf="panier.articles.length > 0">
-      <a class="btn btn-primary" (click)="validerPanier()"><span class="glyphicon glyphicon-log-in"></span> Valider panier</a>
-      <p><a [routerLink]="['/articles']">Consulter le catalogue d'articles.</a></p>
+      <a class="btn btn-primary" (click)="validerPanier()"><span class="glyphicon glyphicon-log-in"></span> {{ 'PANIER.SUBMIT' | translate }}</a>
+      <p><a [routerLink]="['/articles']">{{ 'PANIER.SEE' | translate }}</a></p>
   </div>
-  <p *ngIf="panier.articles.length == 0">Votre panier est vide. <a [routerLink]="['/articles']">Consulter le catalogue d'articles.</a></p>
+  <p *ngIf="panier.articles.length == 0">{{ 'PANIER.EMPTY' | translate }} <a [routerLink]="['/articles']">{{ 'PANIER.SEE' | translate }}</a></p>
   <app-error [error]="error"></app-error>
 </div>

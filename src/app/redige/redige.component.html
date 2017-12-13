@@ -1,5 +1,5 @@
 <div>
-  <h1> {{title}}</h1>
+  <h1> {{ 'REDIGE.MAINTITLE' | translate }} </h1>
   <p> {{ 'REDIGE.EARNINGS' | translate }} {{ totalRoyalties }} €.</p>
   <br />
   <div *ngIf="rediges.length > 0">
@@ -20,8 +20,8 @@
             <td> {{ oeuvre.article.domaine.libdomaine }} </td>
             <td> {{ oeuvre.article.resume }} </td>
             <td> {{ oeuvre.article.dateArticle | date: 'dd/MM/yyyy' }} </td>
-            <td> {{ oeuvre.article.prix |number:'1.2-2'}} </td>
-            <td> {{ oeuvre.part }} </td>
+            <td> {{ oeuvre.article.prix | number:'1.2-2'}}€</td>
+            <td> {{ oeuvre.part }}%</td>
           </tr>
         </tbody>
     </table>

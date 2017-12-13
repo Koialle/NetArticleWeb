@@ -11,8 +11,8 @@
             <td>{{article.titre}}</td>
             <td>{{article.prix|number:'1.2-2'}} €</td>            
             <td>
-              <button class="btn btn-primary" [routerLink]="['/article', article.idArticle]">Détails</button>
-              <button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">Acheter</button>
+              <button class="btn btn-primary" [routerLink]="['/article', article.idArticle]">{{ 'ARTICLE_LIST.DETAILS' | translate }}</button>
+              <button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">{{ 'ARTICLE_LIST.BUY' | translate }}</button>
             </td>
         </tr>
     </tbody>
