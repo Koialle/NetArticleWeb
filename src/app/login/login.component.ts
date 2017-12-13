@@ -46,7 +46,11 @@ export class LoginComponent implements OnInit {
           }
         },
         (error) => {
-          this.error = error.message;
+          if(error.status == 500) {
+            this.error = 'Les identifiants saisis ne correspondant pas à un.e client.e. Veuillez vérifiez les informations saisies.';
+          } else {
+            this.error = error.message;
+          }     
         }
       );
     } else {
@@ -57,11 +61,15 @@ export class LoginComponent implements OnInit {
             this.sharedService.setCurrentAuteur(this.auteur);
             this.router.navigate(['/']);
           } else {
-            this.error = 'Login ou mot de passe erroné ! Êtes-vous certain.e d\être auteur.e ?';
+            this.error = 'Login ou mot de passe erroné !';
           }
         },
         (error) => {
-          this.error = error.message;
+          if(error.status == 500) {
+            this.error = 'Les identifiants saisis ne correspondant pas à un.e auteur.e. Veuillez vérifiez les informations saisies.';
+          } else {
+            this.error = error.message;
+          }          
         }
       );
     }
