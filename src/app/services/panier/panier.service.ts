@@ -12,6 +12,7 @@ export class PanierService {
   public getPanier(): Panier {
     var panier : Panier = Panier.fromJSON(localStorage.getItem('panier'));
     !panier.articles ? panier.articles = [] : '';
+    !panier.total ? panier.total = 0 : '';
 
     if (panier == undefined) {
       panier = new Panier();
