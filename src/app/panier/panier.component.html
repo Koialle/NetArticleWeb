@@ -1,6 +1,6 @@
 <div class="col-md-9 col-md-offset-2">
-  <h1 align='center'>{{ 'PANIER.MAINTITLE' | translate }}</h1>
-    <table class="table table-bordered table-striped">
+  <h2>{{ 'PANIER.MAINTITLE' | translate }}</h2>
+    <table *ngIf="panier.articles.length > 0" class="table table-bordered table-striped">
       <thead>
           <tr>
             <td>{{ 'PANIER.TITLE' | translate }}</td>

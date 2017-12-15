@@ -16,6 +16,7 @@ export class PanierService {
     if (panier == undefined) {
       panier = new Panier();
       panier.articles = [];
+      panier.total = 0;
       return panier;
     } else {
       return panier;
