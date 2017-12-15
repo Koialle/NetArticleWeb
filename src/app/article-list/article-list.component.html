@@ -1,20 +1,18 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <td>Id</td>
-            <td>Titre</td>
-            <td>Prix</td>
+            <td>{{ 'ARTICLE_LIST.TITLE' | translate }}</td>
+            <td>{{ 'ARTICLE_LIST.PRICE' | translate }}</td>
             <td>Actions</td>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let article of articles">
-            <td>{{article.idArticle}}</td>
             <td>{{article.titre}}</td>
-            <td>{{article.prix|number:'1.2-2'}} €</td>
+            <td>{{article.prix|number:'1.2-2'}} €</td>            
             <td>
-              <button class="btn btn-primary" [routerLink]="['/article', article.idArticle]">Détails</button>
-              <button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">Acheter</button>
+              <button class="btn btn-primary" [routerLink]="['/article', article.idArticle]">{{ 'ARTICLE_LIST.DETAILS' | translate }}</button>
+              <button class="btn btn-primary" [routerLink]="['/panier/ajouter', article.idArticle]">{{ 'ARTICLE_LIST.BUY' | translate }}</button>
             </td>
         </tr>
     </tbody>

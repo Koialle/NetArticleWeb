@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>{{title}}</h2>
+  <h2>{{ 'ARTICLE_LIST.MAINTITLE' | translate }}</h2>
   <form role="form" name="articleByDomaineForm" class="form-horizontal">
     <div class="form-group">
       <app-domaine [domaineId]="domaineId" (onChoose)="domaineSelected($event)" (onError)="onError($event)"></app-domaine>

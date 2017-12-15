@@ -1,12 +1,12 @@
 <div>
-  <h1>{{title}}</h1>
+  <h1>{{ 'ACHATS.MAINTITLE' | translate }}</h1>
   <div *ngIf="achats.length > 0">
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Titre</th>
-          <th>Domaine</th>
-          <th>Date achat</th>
+          <th>{{ 'ACHATS.TITLE' | translate }}</th>
+          <th>{{ 'ACHATS.FIELD' | translate }}</th>
+          <th>{{ 'ACHATS.DATE' | translate }}</th>
           <th></th>
         </tr>
       </thead>
@@ -15,11 +15,11 @@
             <td> {{ achat.article.titre }} </td>
             <td> {{ achat.article.domaine.libdomaine }} </td>
             <td> {{ achat.dateAchat |date: 'dd/MM/yyyy'}} </td>
-            <td> <a href="/assets/resources/fichiers/{{achat.article.fichier}}" target="_self"> Télécharger </a>
+            <td> <a href="/assets/resources/fichiers/{{achat.article.fichier}}" target="_self"> {{ 'ACHATS.DDL' | translate }} </a>
           </tr>
         </tbody>
     </table>
   </div>
-  <p *ngIf="achats.length == 0"> Oups, il semblerait que vous n'ayiez pas encore d'articles. <a [routerLink]="['/articles']">En acheter ici.</a></p>
+  <p *ngIf="achats.length == 0"> {{ 'ACHATS.NOARTICLES' | translate }} <a [routerLink]="['/articles']">{{ 'ACHATS.BUY' | translate }}</a></p>
   <app-error [error]="error" ></app-error>
 </div>

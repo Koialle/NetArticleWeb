@@ -11,9 +11,12 @@ export class PanierService {
 
   public getPanier(): Panier {
     var panier : Panier = Panier.fromJSON(localStorage.getItem('panier'));
+    !panier.articles ? panier.articles = [] : '';
 
     if (panier == undefined) {
-      return new Panier();
+      panier = new Panier();
+      panier.articles = [];
+      return panier;
     } else {
       return panier;
     }

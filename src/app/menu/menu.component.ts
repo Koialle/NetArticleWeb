@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared/shared.service';
+import {TranslateService} from 'ng2-translate';
 import { PanierService } from '../services/panier/panier.service';
 import { Router } from '@angular/router';
 
@@ -10,10 +11,19 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   constructor(
+    private translate: TranslateService,
     public sharedService: SharedService,
-    public panierService: PanierService,
-    private router: Router
-  ) { }
+    private router: Router,
+    public panierService: PanierService){
+      translate.addLangs(["en", "fr"]);
+      translate.setDefaultLang('en');
+      if (!localStorage.getItem('lang')) {
+        let browserLang = translate.getBrowserLang();
+        translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+      } else {
+        translate.use(localStorage.getItem('lang'));
+      }    
+  }
 
   ngOnInit() {
   }
@@ -33,5 +43,18 @@ export class MenuComponent implements OnInit {
 
   public isClient(): boolean {
     return this.sharedService.isClientConnected();
+  }
+
+  public changerLangue(value: string): void {
+    // Save language to keep it if user refresh browser
+    localStorage.setItem('lang', value);
+    window.location.reload();
+  }
+
+  public checkCurrentLanguage(value: string): boolean {
+    if(localStorage.getItem('lang') === value){
+      return true;
+    }
+    return false;
   }
 }
