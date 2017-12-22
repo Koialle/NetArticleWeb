@@ -122,13 +122,13 @@ De la même manière, sa traduction en anglais :
 
 ***
 ## Fonctionnalités
-###__Auteur__ <br />
+__Auteur__ <br />
 Exemple d'utilisateur : jean dhort
 - [x] : liste des ouvrages auxquels il a participé
 - [x] : montant total de ses droits d'auteurs perçus sur les ventes réalisées
 - [x] : dernier article paru sur le site
 
-###__Client__ <br />
+__Client__ <br />
 Exemple d'utilisateur : paul auchon
 - [x] : dernier article paru sur le site
 - [x] : recherche des articles par domaine
@@ -139,11 +139,11 @@ Exemple d'utilisateur : paul auchon
 - [x] : ajouter un.des article.s au panier
 - [x] : acheter un.des article.s
 
-###__Autre__ <br />
+__Autre__ <br />
 Utilisateur non-connecté <br />
 - [x] : création de compte
 - [x] : recherche des articles par domaine
-- [x] : ajouter un.des article.s au panier
+- [x] : ajouter un.des article.s au panier <br />
 Sur toute l'application <br />
 - [x] : utilisation de guards pour sécuriser l'application
 - [x] : utilisation du localStorage pour gérer le panier ainsi que les sessions
