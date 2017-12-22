@@ -140,10 +140,11 @@ Exemple d'utilisateur : paul auchon
 - [x] : acheter un.des article.s
 
 __Autre__ <br />
-Utilisateur non-connecté <br />
+Utilisateur non-connecté
 - [x] : création de compte
 - [x] : recherche des articles par domaine
-- [x] : ajouter un.des article.s au panier <br />
-Sur toute l'application <br />
+- [x] : ajouter un.des article.s au panier
+<br />
+Sur toute l'application
 - [x] : utilisation de guards pour sécuriser l'application
 - [x] : utilisation du localStorage pour gérer le panier ainsi que les sessions
