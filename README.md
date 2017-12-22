@@ -1,11 +1,11 @@
 # NetArticleWeb
 Migration d'une application front-end JEE en Angular2 réalisé dans le cadre de Polytech, par Mélanie DUBREUIL et Ophélie EOUZAN 5APP.
 
-- [Pré-requis](README.md)
-- [Installation de la partie front-end](README.md)
-- [Installation de la partie back-end](README.md)
-- [Documentation de la fonctionnalité ajoutée](README.md)
-- [Fonctionnalités](README.md)
+- [Pré-requis](#pré-requis)
+- [Installation de la partie front-end](#installation-de-la-partie-front-end)
+- [Installation de la partie back-end](#installation-de-la-partie-back-end)
+- [Documentation de la fonctionnalité ajoutée](#documentation-de-la-fonctionnalité-ajoutée)
+- [Fonctionnalités](#fonctionnalités)
 
 ****************************************************************************************************************************************
 ## Pré-requis
