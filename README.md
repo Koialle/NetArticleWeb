@@ -145,6 +145,8 @@ Utilisateur non-connecté
 - [x] : recherche des articles par domaine
 - [x] : ajouter un.des article.s au panier
 <br />
+
 Sur toute l'application
+
 - [x] : utilisation de guards pour sécuriser l'application
 - [x] : utilisation du localStorage pour gérer le panier ainsi que les sessions
