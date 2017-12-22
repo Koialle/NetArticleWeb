@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpModule, Http } from '@angular/http';
+import {TranslateModule, TranslateLoader, TranslateStaticLoader} from 'ng2-translate';
 
 // Components
 import { AppComponent } from './app.component';
@@ -34,6 +36,11 @@ import { PanierService } from './services/panier/panier.service';
 // Guards
 import { ClientGuard } from './guards/client.guard';
 import { AuteurGuard } from './guards/auteur.guard';
+import { FooterComponent } from './footer/footer.component';
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, './assets/resources/i18n', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -50,12 +57,20 @@ import { AuteurGuard } from './guards/auteur.guard';
     PanierComponent,
     AchatsComponent,
     RedigeComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule,
+    BrowserModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+    })
   ],
   providers: [
     SharedService,

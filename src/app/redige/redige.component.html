@@ -1,17 +1,17 @@
 <div>
-  <h1> {{title}}</h1>
-  <p> Vos oeuvres vous ont rapporté {{ totalRoyalties }} €.</p>
+  <h1> {{ 'REDIGE.MAINTITLE' | translate }} </h1>
+  <p> {{ 'REDIGE.EARNINGS' | translate }} {{ totalRoyalties }} €.</p>
   <br />
   <div *ngIf="rediges.length > 0">
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Titre</th>
-          <th>Domaine</th>
-          <th>Resume</th>
-          <th>Date</th>
-          <th>Prix</th>
-          <th>Part</th>
+          <th>{{ 'REDIGE.TITLE' | translate }}</th>
+          <th>{{ 'REDIGE.FIELD' | translate }}</th>
+          <th>{{ 'REDIGE.SUMMARY' | translate }}</th>
+          <th>{{ 'REDIGE.DATE' | translate }}</th>
+          <th>{{ 'REDIGE.PRICE' | translate }}</th>
+          <th>{{ 'REDIGE.PART' | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -20,12 +20,12 @@
             <td> {{ oeuvre.article.domaine.libdomaine }} </td>
             <td> {{ oeuvre.article.resume }} </td>
             <td> {{ oeuvre.article.dateArticle | date: 'dd/MM/yyyy' }} </td>
-            <td> {{ oeuvre.article.prix |number:'1.2-2'}} </td>
-            <td> {{ oeuvre.part }} </td>
+            <td> {{ oeuvre.article.prix | number:'1.2-2'}}€</td>
+            <td> {{ oeuvre.part }}%</td>
           </tr>
         </tbody>
     </table>
   </div>
-  <p *ngIf="rediges.length == 0"> Oups, il semblerait que vous n'ayiez pas encore écrit d'oeuvres. A votre plume !</p>
-  <app-error [error]="error" ></app-error>
+  <p *ngIf="rediges.length == 0"> </p>
+  <app-error [error]="error" >{{ 'REDIGE.NOWORK' | translate }}</app-error>
 </div>

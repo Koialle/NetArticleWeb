@@ -1,7 +1,7 @@
-<label class="col-sm-2 col-md-2 control-label">Domaine : </label>
+<label class="col-sm-3 col-md-2 control-label">{{ 'DOMAINE.LABEL' | translate }}</label>
 <div class="col-sm-6 col-md-3">
   <select class='form-control' name='cbDomaines' [(ngModel)]="domaineId" (change)="onChange($event.target.value)">
-    <option [value]="0" selected>Sélectionner un domaine</option>
+    <option [value]='0' selected>{{ 'DOMAINE.SELECT' | translate }}</option>
     <option *ngFor="let domaine of domaines" [value]="domaine.idDomaine">{{domaine.libdomaine}}</option>
   </select>
 </div>
