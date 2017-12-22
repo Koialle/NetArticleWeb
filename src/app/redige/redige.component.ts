@@ -13,7 +13,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./redige.component.css']
 })
 export class RedigeComponent implements OnInit {
-  public rediges: Redige[];
+  public rediges;
   public error: string;
   public title: string;
   public totalRoyalties: number;
@@ -28,6 +28,7 @@ export class RedigeComponent implements OnInit {
 
   ngOnInit() {
     this.reload();
+    this.rediges = [];
   }
 
   getOeuvres(id: number): void {
@@ -42,9 +43,6 @@ export class RedigeComponent implements OnInit {
             this.totalRoyalties = this.totalRoyalties + (((redige.part/100)*redige.article.prix)*achats.length);
           }));
         });
-        /*obs.map((observable) => {
-          observable.subscribe();
-        });*/
         Observable.forkJoin(obs).subscribe(()=> {
           this.router.navigate(['/oeuvres']);
         });

@@ -112,6 +112,9 @@ export class PanierComponent implements OnInit {
                 // Add article
                 this.achatService.acheterArticle(client.idClient, article.idArticle).subscribe(
                   () => {
+                    // Saving new credits in client object in localStorage
+                    client.credits = client.credits - article.prix;
+                    this.sharedService.setCurrentClient(client);
                     this.panierService.clearPanier();
                     this.router.navigate(['/achats']);
                   },

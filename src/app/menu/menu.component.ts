@@ -19,7 +19,8 @@ export class MenuComponent implements OnInit {
       translate.setDefaultLang('en');
       if (!localStorage.getItem('lang')) {
         let browserLang = translate.getBrowserLang();
-        translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+        translate.use('fr');
+        localStorage.setItem('lang','fr');
       } else {
         translate.use(localStorage.getItem('lang'));
       }    

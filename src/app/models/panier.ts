@@ -50,6 +50,7 @@ export class Panier {
 
   private minus(article: Article) {
     this.total -= article.prix;
+    if (this.total < 0 ) this.total = 0; 
   }
 
   // toJSON is automatically used by JSON.stringify
