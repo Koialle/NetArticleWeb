@@ -10,7 +10,7 @@ Migration d'une application front-end JEE en Angular2 réalisé dans le cadre de
 ****************************************************************************************************************************************
 ## Pré-requis
 __Front-end__
-- NodeJS (version utilisée : v8.9.1) : https://www.npmjs.com/
+- NodeJS (version utilisée : 8.9.1) : https://www.npmjs.com/
 - Npm (version utilisée : 5.5.1) : `npm install npm@latest -g`
 - AngularCli (version utilisée : 1.4.2) : `npm install -g @angular/cli@latest`
 
@@ -27,7 +27,7 @@ __Backend-end__
 ## Installation de la partie front-end
 __/!\ Requiert la partie back-end pour fonctionner__
 1. Télécharger le code-source de l'application sur ce repository git (branche master)
-2. Naviguer dans le dossier `NetArticleWeb` avec un invite de commande
+2. Naviguer dans le dossier `NetArticleWeb` en ligne de commande
 3. Installer les dépendances : `npm install`
 4. Lancer l'application : `ng serve`
 5. Ouvrir un navigateur à l'adresse suivante : `http://localhost:4200/`
@@ -42,8 +42,9 @@ __/!\ Requiert la partie back-end pour fonctionner__
 
 ***
 ## Documentation de la fonctionnalité ajoutée
+Internationnalisation
 ### Objectif de la fonctionnalité
-Etant donné que NetArticlesWeb est un site de e-commerce, il nous a paru interessant d'internationnaliser notre site. L'objectif était donc de traduire notre site en deux langues : l'anglais et le français ainsi que le passage d'une langue à l'autre via un bouton. La traduction ne comprend pas les informations retournées par le back-end comme les informations relatives aux articles.
+Etant donné que NetArticlesWeb est un site de e-commerce, il nous a paru intéressant d'internationnaliser notre site. L'objectif était donc de traduire notre site en deux langues : l'anglais et le français et de permettre le passage d'une langue à l'autre via un bouton. La traduction ne comprend pas les informations retournées par le back-end comme les informations relatives aux articles.
 
 ### Technologie utilisée
 Nous avons choisi d'utiliser la librairie [ngx-translate i18n](https://github.com/ngx-translate/core/blob/fb02ca5920aae405048ebab50e09db67d5bf12a2/README.md) afin de mettre en place cette fonctionnalité.
@@ -54,7 +55,7 @@ La librairie nous a permis de mettre en place la traduction de notre site de man
 
 ### Mise en place de la technologie
 1. Installer la librairie : `npm install ng2-translate --save`
-2. Importer la librairie dans app.module.ts
+2. Importer la librairie dans app.module.ts. 
 Par défaut, la librairie utilise `TranslateStaticLoader` pour charger les fichiers de traduction.
 ```javascript
 // Import des modules
@@ -82,7 +83,8 @@ export function createTranslateLoader(http: Http) {
 })
  ```
  __NB : ngx-translate requiert `HttpModule`, ne pas oublier de l'importer__
-3. Importer la librairie dans app.component.ts, puis dans le constructeur, indiquer quelles langues sont supportées et laquelle utiliser
+ 
+3. Définir les traductions (app.component.ts)
 ```javascript
 import {TranslateService} from 'ng2-translate';
 
@@ -115,18 +117,18 @@ De la même manière, sa traduction en anglais :
     "MAINTITLE": "Great application"
 }
 ```
-5. Utilisation de la traduction dans l'application :
+5. Utilisation de la traduction dans l'application (templates html)
 `<div>{{ 'MAINTITLE' | translate }}</div>`
 
 ***
 ## Fonctionnalités
-###__Auteur__
+###__Auteur__ <br />
 Exemple d'utilisateur : jean dhort
 - [x] : liste des ouvrages auxquels il a participé
 - [x] : montant total de ses droits d'auteurs perçus sur les ventes réalisées
 - [x] : dernier article paru sur le site
 
-###__Client__
+###__Client__ <br />
 Exemple d'utilisateur : paul auchon
 - [x] : dernier article paru sur le site
 - [x] : recherche des articles par domaine
@@ -137,11 +139,11 @@ Exemple d'utilisateur : paul auchon
 - [x] : ajouter un.des article.s au panier
 - [x] : acheter un.des article.s
 
-###__Autre__
-Utilisateur non-connecté
+###__Autre__ <br />
+Utilisateur non-connecté <br />
 - [x] : création de compte
 - [x] : recherche des articles par domaine
 - [x] : ajouter un.des article.s au panier
-Sur toute l'application
+Sur toute l'application <br />
 - [x] : utilisation de guards pour sécuriser l'application
 - [x] : utilisation du localStorage pour gérer le panier ainsi que les sessions
