@@ -7,21 +7,32 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" routerLink="/home">Accueil</a>
+            <a class="navbar-brand" routerLink="/">{{ 'MENU.HOME' | translate }}</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-target">
             <ul class="nav navbar-nav">
-                <li><a href="#">Rechercher</a></li>
-                <li *ngIf="sharedService.isConnected"><a href="#">Mes articles</a></li>
-                <li *ngIf="sharedService.isConnected"><a [routerLink]= "['/compte']">Compte</a></li>
-                <li><a href="#">Panier</a></li>
+                <li *ngIf="!isAuthor()"><a [routerLink]="['/articles']" routerLinkActive="active">{{ 'MENU.SEARCH' | translate }}</a></li>
+                <li *ngIf="isClient()"><a [routerLink]="['/achats']" routerLinkActive="active">{{ 'MENU.ARTICLES' | translate }}</a></li>
+                <li *ngIf="isAuthor()"><a [routerLink]= "['/oeuvres']" routerLinkActive="active">{{ 'MENU.WORK' | translate }}</a></li>
+                <li *ngIf="isClient()"><a [routerLink]= "['/compte']" routerLinkActive="active">{{ 'MENU.ACCOUNT' | translate }}</a></li>
+                <li *ngIf="!isAuthor()">
+                  <a [routerLink]= "['/panier']" routerLinkActive="active">
+                    {{ 'MENU.BASKET' | translate }} <span class="badge badge-light">{{ panierService.getTaillePanier() }}</span>
+                  </a>
+                </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li *ngIf="!sharedService.isConnected"><a [routerLink]="['/login']" class="btn btn-link">Login</a></li>
-                <li *ngIf="sharedService.isConnected"><a (click)="logout()">Logout</a></li>
+            <ul class="nav navbar-nav navbar-right countryPictureCenter">
+                <a (click)="changerLangue('en')">
+                    <img src="/assets/resources/pictures/en.jpg" width="25" height="20"
+                    [ngClass]="{countryActivated: checkCurrentLanguage('en'), countryDisabled: !checkCurrentLanguage('en')}" />
+                </a>
+                <a (click)="changerLangue('fr')">
+                    <img src="/assets/resources/pictures/fr.jpg" width="25" height="20" class="space"
+                    [ngClass]="{countryActivated: checkCurrentLanguage('fr'), countryDisabled: !checkCurrentLanguage('fr')}" />
+                </a>           
+                <li *ngIf="!isLogged()"><a [routerLink]="['/login']" class="btn btn-link">{{ 'MENU.LOGIN' | translate }}</a></li>
+                <li *ngIf="isLogged()"><a (click)="logout()">{{ 'MENU.LOGOUT' | translate }}</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
-

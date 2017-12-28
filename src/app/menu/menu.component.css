@@ -1,0 +1,21 @@
+.countryPictureCenter{
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+}
+
+img {
+    cursor: pointer;
+}
+
+.countryActivated {
+    opacity: 1;
+}
+
+.countryDisabled {
+    opacity: 0.5;
+}
+
+.space {
+    margin-left: 5px;
+}

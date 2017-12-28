@@ -1,0 +1,94 @@
+{
+    "LOGIN": {
+        "ID": "Login",
+        "PASSWORD": "Password",
+        "AUTHOR": "I'm an author",
+        "SUBMIT": "Submit",
+        "RESET": "Reset",
+        "NOACCOUNT": "Don't have an account ? Subscribe right now."
+    },
+    "MENU": {
+        "HOME": "Home",
+        "SEARCH": "Search",
+        "ARTICLES": "My articles",
+        "WORK": "My work",
+        "ACCOUNT": "Account",
+        "BASKET": "Basket",
+        "LOGIN": "Login",
+        "LOGOUT": "Logout"
+    },
+    "ACHATS": {
+        "MAINTITLE": "My articles",
+        "TITLE": "Title",
+        "FIELD": "Field",
+        "DATE": "Date of purchase",
+        "DDL": "Download",
+        "NOARTICLES": "Oops, it seems like you don't have any articles.",
+        "BUY": "Buy some here !"
+    },
+    "ARTICLE": {
+        "TITLE": "Title",
+        "SUMMARY": "Summary",
+        "PRICE": "Price",
+        "DATE": "Publication date",
+        "FIELD": "Field",
+        "ADD" : "Add to basket",
+        "BACK" : "Back"
+    },
+    "ARTICLE_LIST": {
+        "MAINTITLE": "Article list",
+        "TITLE": "Title",
+        "SUMMARY": "Summary",
+        "PRICE": "Price",
+        "BASKET": "Basket",
+        "DETAILS": "Details",
+        "BUY": "Buy"
+    },
+    "CATEGORIE": {
+        "LABEL": "Category",
+        "SELECT": "Choose your category"
+    },
+    "CLIENT": {
+        "MAINTITLE": "Your account",
+        "IDENTITY": "Identity",
+        "IDENTITY_PLACEHOLDER": "NAME Surname",
+        "ADDRESS": "Address",
+        "ADDRESS_PLACEHOLDER": "Address",
+        "CREDITS": "Credits",
+        "CREDITS_PLACEHOLDER": "Credits",
+        "LOGIN": "Login",
+        "LOGIN_PLACEHOLDER": "Credential used to log into the app",
+        "PASSWORD": "Password",
+        "PASSWORD_PLACEHOLDER": "Password used to log into the app",
+        "SUBMIT": "Submit",
+        "CANCEL": "Cancel"
+    },
+    "DOMAINE": {
+        "LABEL": "Field",
+        "SELECT": "Select a field"
+    },
+    "REDIGE": {
+        "MAINTITLE" : "Your work",
+        "EARNINGS": "You earned ",
+        "TITLE": "Title",
+        "SUMMARY": "Summary",
+        "PRICE": "Price",
+        "PART": "Participation",
+        "DATE": "Publication date",
+        "FIELD": "Field",
+        "NOWORK": "Oops, it seems like you haven't wrote something yet..."
+    },
+    "PANIER": {
+        "TITLE": "Title",
+        "PRICE": "Price",
+        "DELETE": "Delete",
+        "EMPTY" : "Empty basket.",
+        "SEE" : "See articles list !",
+        "TOTAL" : "Total amount",
+        "MAINTITLE" : "Basket",
+        "SUBMIT" : "Submit basket"
+    },
+    "FOOTER": {
+        "COPYRIGHTS": "By Mélanie DUBREUIL and Ophélie EOUZAN"
+    }
+}

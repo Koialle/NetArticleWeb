@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>{{ 'ARTICLE_LIST.MAINTITLE' | translate }}</h2>
+  <form role="form" name="articleByDomaineForm" class="form-horizontal">
+    <div class="form-group">
+      <app-domaine [domaineId]="domaineId" (onChoose)="domaineSelected($event)" (onError)="onError($event)"></app-domaine>
+    </div>
+  </form>
+    <app-article-list [articles]="articles" (reload)="reload()"></app-article-list>
+  <app-error [error]="error"></app-error>
+</div>

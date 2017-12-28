@@ -1,7 +1,7 @@
-<label class="col-sm-3  col-md-2 control-label">Catégorie : </label>
+<label class="col-sm-3  col-md-2 control-label">{{ 'CATEGORIE.LABEL' | translate }}</label>
 <div class="col-sm-6 col-md-3">
-  <select class='form-control' name='departs' required  [(ngModel)]="idCategorie" (change)=" onChange($event.target.value)" >
-        <option value='undefined'>Sélectionnez votre catégorie</option>
+  <select class="form-control" name="departs" required  [(ngModel)]="idCategorie" (change)=" onChange($event.target.value)" >
+        <option value="undefined" selected>{{ 'CATEGORIE.SELECT' | translate }}</option>
         <option *ngFor="let categorie of categories" [value]="categorie.idCategorie"> {{categorie.libcategorie}} </option>
   </select>
 </div>
